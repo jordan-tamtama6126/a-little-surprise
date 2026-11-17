@@ -1,0 +1,4493 @@
+:root {
+  --paper: #fffefa;
+  --cream: #f8f4e9;
+  --tosca: #b8ded8;
+  --tosca-dark: #78b8b1;
+  --ocean: #507e87;
+  --deep: #355961;
+  --sand: #ddcdb4;
+  --ink: #4c6567;
+  --shadow: 0 12px 30px rgba(65, 104, 105, .13);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: Georgia, serif;
+  background:
+    radial-gradient(ellipse at 10% 20%, #e5f2ed 0, transparent 35%),
+    radial-gradient(ellipse at 90% 80%, #e2eff0 0, transparent 40%),
+    #f7f5ee;
+}
+
+button {
+  font: inherit;
+}
+
+.ocean-decoration {
+  position: fixed;
+  top: 12px;
+  right: 14px;
+  z-index: 5;
+  color: var(--ocean);
+  opacity: .8;
+  font-size: 17px;
+  pointer-events: none;
+}
+
+.page {
+  width: min(100% - 28px, 900px);
+  min-height: 78vh;
+  margin: 30px auto;
+  padding: 30px 20px;
+  animation: appear .65s ease both;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* COVER */
+
+.cover-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.cover-card {
+  position: relative;
+  width: min(100%, 570px);
+  padding: 55px 24px 42px;
+  overflow: hidden;
+  border: 1px solid #e5dfd1;
+  outline: 7px solid rgba(255, 255, 255, .48);
+  border-radius: 5px 5px 30px 5px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.7), transparent 65%),
+    repeating-linear-gradient(0deg, transparent, transparent 34px, #d9e8e3 35px),
+    var(--paper);
+  box-shadow: var(--shadow);
+}
+
+.cover-card::before {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  right: -65px;
+  top: -70px;
+  border-radius: 50%;
+  background: var(--tosca);
+  opacity: .5;
+}
+
+.cover-shell {
+  margin-bottom: 12px;
+  font-size: 38px;
+}
+
+.eyebrow {
+  color: var(--ocean);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  line-height: 1.8;
+}
+
+.cover-ribbon {
+  margin: 22px auto 10px;
+  width: 44px;
+  padding: 8px 0;
+  background: var(--tosca);
+  color: var(--deep);
+  border-radius: 3px 3px 12px 12px;
+}
+
+h1, h2, .album-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 500;
+}
+
+h1 {
+  position: relative;
+  margin: 15px 0;
+  color: var(--deep);
+  font-size: clamp(34px, 8vw, 55px);
+  line-height: 1.2;
+}
+
+.subtitle {
+  margin: 12px 0;
+  font-family: "Caveat", cursive;
+  font-size: 30px;
+  color: var(--ocean);
+}
+
+.wave-line {
+  margin: 20px 0;
+  color: var(--tosca-dark);
+  letter-spacing: 5px;
+}
+
+.cover-note {
+  font-style: normal;
+  font-weight: 545;
+}
+
+.main-button, .soft-button {
+  border: 1px solid var(--tosca-dark);
+  border-radius: 30px;
+  padding: 12px 20px;
+  background: var(--tosca);
+  color: var(--deep);
+  cursor: pointer;
+  transition: .25s ease;
+}
+
+.main-button {
+  margin-top: 20px;
+}
+
+.main-button:hover, .soft-button:hover {
+  background: var(--ocean);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.bottom-note {
+  margin-top: 25px;
+  font-family: "Caveat", cursive;
+  font-size: 21px;
+}
+
+/* PAGE HEADERS */
+
+.page-header {
+  text-align: center;
+  margin: 12px auto 30px;
+}
+
+.page-header h2, .letter-paper h2 {
+  color: var(--deep);
+  font-size: clamp(28px, 6vw, 40px);
+  margin: 8px 0 12px;
+}
+
+.page-header > p:last-child {
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* ALBUM GRID */
+
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.album-card {
+  position: relative;
+  display: flex;
+  min-height: 205px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 25px 12px 18px;
+  border: 1px solid #e3dfd2;
+  border-radius: 5px 5px 22px 5px;
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 4px 7px 0 rgba(182, 215, 208, .42), var(--shadow);
+  cursor: pointer;
+  text-align: center;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.album-card:nth-child(2) {
+  background: #f8f3e8;
+  transform: rotate(1deg);
+}
+
+.album-card:nth-child(3) {
+  background: #edf7f3;
+  transform: rotate(-1deg);
+}
+
+.album-card:nth-child(4) {
+  background: #f9f5ef;
+}
+
+.album-card:hover {
+  transform: translateY(-6px) rotate(0);
+  box-shadow: 4px 12px 0 rgba(182, 215, 208, .3), var(--shadow);
+}
+
+.tape {
+  position: absolute;
+  width: 62px;
+  height: 18px;
+  top: -7px;
+  left: calc(50% - 31px);
+  background: rgba(184, 222, 216, .75);
+  transform: rotate(-4deg);
+}
+
+.album-icon {
+  font-size: 32px;
+}
+
+.album-title {
+  font-size: 19px;
+  color: var(--deep);
+}
+
+.album-desc {
+  font-family: "Caveat", cursive;
+  font-size: 18px;
+}
+
+.album-number {
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin-top: 4px;
+  color: var(--ocean);
+}
+
+/* PHOTO ALBUM */
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.photo-card {
+  min-width: 0;
+  padding: 10px 10px 18px;
+  background: var(--paper);
+  border: 1px solid #e5dfd1;
+  box-shadow: var(--shadow);
+  transform: rotate(-1deg);
+}
+
+.photo-card:nth-child(even) {
+  transform: rotate(1deg);
+}
+
+.photo-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  background: #eef3ee;
+}
+
+.photo-caption {
+  margin: 12px 0 0;
+  font-family: "Caveat", cursive;
+  font-size: 21px;
+  text-align: center;
+}
+
+.photo-placeholder {
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  text-align: center;
+  background: #eaf4ef;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* LETTER & LITTLE THINGS */
+
+.letter-paper, .playlist-paper, .quote-paper {
+  width: min(100%, 650px);
+  margin: 15px auto;
+  padding: clamp(24px, 6vw, 48px);
+  border: 1px solid #e5dfd1;
+  background:
+    repeating-linear-gradient(
+      transparent,
+      transparent 31px,
+      rgba(158, 194, 190, .18) 32px
+    ),
+    var(--paper);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.letter-paper h2 {
+  margin-bottom: 20px;
+}
+
+.little-flower, .quote-flower {
+  color: var(--tosca-dark);
+  font-size: 30px;
+}
+
+.letter-text {
+  font-size: 16px;
+  line-height: 2;
+  margin: 22px 0;
+}
+
+.letter-signature {
+  margin-top: 30px;
+  font-family: "Caveat", cursive;
+  font-size: 26px;
+  color: var(--ocean);
+}
+
+.things-list {
+  text-align: left;
+  line-height: 2.2;
+  margin-top: 25px;
+}
+
+.things-list p {
+  padding: 8px 10px;
+  border-bottom: 1px dashed #cbded8;
+}
+
+
+/* VINTAGE CASSETTE PLAYLIST */
+
+.cassette-room {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 10% 10%, #f6e7e2 0, transparent 30%),
+    radial-gradient(circle at 90% 90%, #dcece7 0, transparent 35%),
+    #fffaf2;
+  border: 1px solid #e8d8c8;
+}
+
+.cassette-room .playlist-intro {
+  max-width: 430px;
+  margin: 0 auto 35px;
+  color: #718b85;
+  font-family: "Caveat", cursive;
+  font-size: 21px;
+  line-height: 1.7;
+}
+
+.cassette-display {
+  max-width: 390px;
+  margin: 0 auto 38px;
+  padding: 22px 15px;
+  background: #f4e8d9;
+  border: 1px solid #e1cfbb;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(105, 83, 65, .10);
+}
+
+.cassette-label {
+  margin: 0 0 16px;
+  color: #a17d70;
+  font-size: 10px;
+  letter-spacing: 4px;
+}
+
+.main-cassette {
+  padding: 15px;
+  border-radius: 13px;
+  background: linear-gradient(145deg, #f8dcd5, #edc8c0);
+  border: 1px solid #d9aaa1;
+  box-shadow: 0 8px 15px rgba(116, 75, 68, .15);
+  transform: rotate(-2deg);
+}
+
+.cassette-top,
+.cassette-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #946d68;
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.cassette-window {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 15px;
+  margin: 17px 0;
+  padding: 17px 12px;
+  background: #f9eee5;
+  border: 1px solid #d8b5a9;
+  border-radius: 9px;
+}
+
+.cassette-reel {
+  display: grid;
+  place-items: center;
+  width: 57px;
+  height: 57px;
+  border: 5px dashed #b98e83;
+  border-radius: 50%;
+  background: #f1d8cd;
+  animation: cassetteSpin 5s linear infinite;
+  animation-play-state: paused;
+}
+
+.cassette-reel .reel-center {
+  width: 15px;
+  height: 15px;
+  border: 3px solid #b98e83;
+  border-radius: 50%;
+  background: #fff7ed;
+}
+
+.cassette-tape {
+  width: 45px;
+  height: 5px;
+  border-radius: 10px;
+  background: #b98e83;
+}
+
+@keyframes cassetteSpin {
+  to { transform: rotate(360deg); }
+}
+
+.cassette-bottom {
+  font-size: 8px;
+}
+
+.cassette-hint {
+  margin: 24px 0 0;
+  color: #977b70;
+  font-family: "Caveat", cursive;
+  font-size: 19px;
+}
+
+.collection-title {
+  margin: 0 0 17px;
+  color: #9b8276;
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+.cassette-collection {
+  max-width: 450px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.cassette-song {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin: 12px 0;
+  padding: 13px;
+  color: inherit;
+  text-decoration: none;
+  background: rgba(255, 255, 255, .75);
+  border: 1px solid #eadbd0;
+  border-radius: 12px;
+  box-shadow: 0 3px 9px rgba(90, 75, 60, .05);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.cassette-song:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 13px rgba(90, 75, 60, .10);
+}
+
+.mini-cassette {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 48px;
+  height: 36px;
+  border-radius: 6px;
+  background: #eac9c1;
+  border: 1px solid #d8aaa0;
+  color: #986f68;
+  font-size: 19px;
+}
+
+.cassette-song-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.cassette-song-info strong {
+  display: block;
+  color: #5d7771;
+  font-size: 14px;
+}
+
+.cassette-song-info small {
+  display: block;
+  margin-top: 4px;
+  color: #a38b80;
+  font-family: "Caveat", cursive;
+  font-size: 16px;
+}
+
+.cassette-play {
+  color: #a77c73;
+  font-size: 17px;
+}
+
+.cassette-room .playlist-note {
+  color: #a18479;
+  text-align: center;
+}
+
+.cassette-room .playlist-decoration {
+  margin-top: 20px;
+  color: #8baea5;
+  text-align: center;
+  letter-spacing: 5px;
+}
+
+@media (max-width: 520px) {
+  .cassette-display {
+    padding: 18px 10px;
+  }
+
+  .cassette-song {
+    gap: 10px;
+    padding: 11px;
+  }
+
+  .mini-cassette {
+    width: 42px;
+    height: 33px;
+  }
+}
+
+/* QUOTES */
+
+.quote-paper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px 3px 25px 3px;
+  padding-top: 35px;
+}
+
+.quote-paper::before {
+  content: "";
+  position: absolute;
+  inset: 9px;
+  border: 1px dashed #b8d5cf;
+  pointer-events: none;
+}
+
+.quote-shell {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.big-quote {
+  position: relative;
+  margin: 35px 0 25px;
+  color: var(--deep);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(25px, 5.5vw, 36px);
+  line-height: 1.65;
+}
+
+.divider-wave {
+  color: var(--tosca-dark);
+  letter-spacing: 4px;
+  margin: 25px 0;
+}
+
+.small-quote {
+  max-width: 470px;
+  margin: 25px auto;
+  font-family: "Caveat", cursive;
+  font-size: clamp(21px, 4.8vw, 28px);
+  line-height: 1.7;
+}
+
+.quote-ending {
+  margin-top: 30px;
+  font-family: "Caveat", cursive;
+  font-size: 23px;
+  color: var(--ocean);
+}
+
+.quote-flower {
+  margin-top: 15px;
+}
+
+/* NAVIGATION */
+
+.page-navigation {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin: 30px auto 10px;
+}
+
+.soft-button {
+  padding: 10px 17px;
+  font-size: 13px;
+}
+
+footer {
+  padding: 12px 16px 28px;
+  text-align: center;
+  color: var(--ocean);
+  font-family: "Caveat", cursive;
+  font-size: 19px;
+}
+
+@media (max-width: 520px) {
+  .page {
+    width: min(100% - 18px, 900px);
+    padding: 28px 8px;
+  }
+
+  .cover-card {
+    padding: 40px 17px 32px;
+  }
+
+  .album-grid {
+    gap: 14px;
+  }
+
+  .album-card {
+    min-height: 180px;
+    padding: 22px 8px 14px;
+  }
+
+  .album-title {
+    font-size: 16px;
+  }
+
+  .album-desc {
+    font-size: 16px;
+  }
+
+  .photo-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    max-width: 380px;
+  }
+
+  .page-navigation {
+    gap: 8px;
+  }
+
+  .soft-button {
+    padding: 10px 12px;
+  }
+}
+
+.last-note {
+  max-width: 380px;
+  margin: 36px auto 20px;
+  padding: 24px 20px;
+  text-align: center;
+  background: #fffaf5;
+  border: 1px solid #ead8cf;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(110, 75, 60, 0.07);
+}
+
+.last-note-label,
+.last-note-footer {
+  color: #b58b87;
+  font-family: Georgia, serif;
+  font-size: 12px;
+  font-style: italic;
+}
+
+.last-note h2 {
+  color: #795b55;
+  font-family: Georgia, serif;
+  font-size: 25px;
+  font-weight: normal;
+}
+
+.last-note p:not(.last-note-label):not(.last-note-footer) {
+  color: #806b64;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.last-note-button {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 11px 20px;
+  border-radius: 24px;
+  background: #d6adb0;
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  transition: background 0.2s ease;
+}
+
+.last-note-button:hover {
+  background: #bd8e94;
+}
+
+/* ===== A LITTLE GAME CORNER ===== */
+
+.game-page {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100vh;
+  padding: 36px 18px;
+  background: #f8efe8;
+  color: #805b50;
+  font-family: "DM Sans", sans-serif;
+}
+
+.game-page-inner {
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.game-eyebrow {
+  color: #b17d82;
+  font-size: 12px;
+  letter-spacing: 3px;
+}
+
+.game-page h1 {
+  margin: 14px 0;
+  color: #805b50;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(36px, 7vw, 58px);
+}
+
+.game-subtitle {
+  color: #9a7770;
+  font-family: "Sacramento", cursive;
+  font-size: 25px;
+}
+
+.game-divider {
+  margin: 22px 0;
+  color: #c98791;
+}
+
+.game-intro {
+  margin-bottom: 28px;
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  text-align: left;
+}
+
+.game-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 22px;
+  border: 1px solid #e5d1c5;
+  border-radius: 18px;
+  background: #fff9f3;
+  box-shadow: 0 7px 18px #8a655014;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.game-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px #8a65501f;
+}
+
+.game-icon {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border-radius: 15px;
+  background: #f5dde0;
+  color: #a56e72;
+  font-size: 26px;
+}
+
+.game-card h2 {
+  margin: 16px 0 8px;
+  color: #805b50;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 25px;
+}
+
+.game-card p {
+  margin: 0 0 18px;
+  color: #9a7770;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.game-link,
+.game-coming-soon {
+  display: inline-block;
+  margin-top: auto;
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.game-link {
+  background: #f2d5da;
+  color: #805b50;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.game-link:hover {
+  background: #eac1ca;
+}
+
+.game-coming-soon {
+  background: #eee3d8;
+  color: #9a7770;
+}
+
+.game-footer {
+  margin: 30px 0 20px;
+  color: #b17d82;
+  font-family: "Sacramento", cursive;
+  font-size: 22px;
+}
+
+.game-back {
+  padding: 10px 18px;
+  border: 1px solid #d9bdb1;
+  border-radius: 22px;
+  background: transparent;
+  color: #805b50;
+  cursor: pointer;
+}
+
+@media (max-width: 560px) {
+  .game-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .game-page {
+    padding: 28px 16px;
+  }
+}
+
+
+/* LITTLE MEMORY MATCH */
+
+.memory-game-section {
+  width: 100%;
+  max-width: 850px;
+  margin: 35px auto;
+  padding: 25px 18px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.memory-game-section h2 {
+  font-family: 'Playfair Display', serif;
+  margin: 10px 0;
+}
+
+.memory-game-description {
+  font-family: 'Caveat', cursive;
+  font-size: 20px;
+  line-height: 1.5;
+  margin-bottom: 25px;
+}
+
+.genially-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #f8edf0;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.genially-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+
+/* =====================================
+   QUOTES SECOND PAGE - LANDING PAGE
+===================================== */
+
+#quotesSecondPage {
+  min-height: 100vh;
+  padding: 55px 7%;
+  box-sizing: border-box;
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  background:
+    radial-gradient(ellipse at 10% 15%, rgba(191, 222, 211, 0.25), transparent 35%),
+    radial-gradient(ellipse at 90% 85%, rgba(210, 190, 165, 0.2), transparent 35%),
+    #f7f4ec;
+}
+
+#quotesSecondPage:not(.hidden) {
+  display: flex;
+}
+
+#quotesSecondPage .quotes-collection {
+  width: 100%;
+  max-width: 1050px;
+  margin: auto;
+  padding: 35px;
+  box-sizing: border-box;
+}
+
+/* FOTO LANDING PAGE */
+
+/* FOTO LANDSCAPE */
+
+#quotesSecondPage .quotes-hero-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  margin: 0 auto 45px;
+  border-radius: 18px;
+}
+
+#quotesSecondPage .quotes-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* BAGIAN JUDUL */
+
+#quotesSecondPage .eyebrow {
+  text-align: center;
+  letter-spacing: 4px;
+  color: #789d98;
+  font-size: 11px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+#quotesSecondPage h2 {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  color: #526e6b;
+  font-size: clamp(30px, 4vw, 46px);
+  font-weight: 500;
+  margin: 15px 0;
+}
+
+#quotesSecondPage .quotes-subtitle {
+  max-width: 600px;
+  margin: 0 auto 40px;
+  text-align: center;
+  font-family: 'Caveat', cursive;
+  color: #82918a;
+  font-size: 22px;
+  line-height: 1.6;
+}
+
+/* KUMPULAN QUOTES */
+
+#quotesSecondPage .quotes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+#quotesSecondPage .quote-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 25px;
+  margin: 0;
+  background: rgba(255, 253, 247, 0.8);
+  border: 1px solid #e8dfd0;
+  border-radius: 14px;
+  box-shadow: 0 5px 18px rgba(80, 100, 90, 0.05);
+  transition: 0.3s ease;
+}
+
+#quotesSecondPage .quote-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(80, 100, 90, 0.1);
+}
+
+#quotesSecondPage .quote-number {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #c5e2dc;
+  color: #527b75;
+  font-family: 'Playfair Display', serif;
+  font-size: 12px;
+}
+
+#quotesSecondPage .quote-card p {
+  margin: 3px 0;
+  color: #596d69;
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* TOMBOL NAVIGASI */
+
+#quotesSecondPage .page-navigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+#quotesSecondPage .soft-button {
+  padding: 12px 24px;
+  border-radius: 30px;
+  border: 1px solid #8bbdb5;
+  background: #c5e2dc;
+  color: #456c67;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+#quotesSecondPage .soft-button:hover {
+  background: #a9d2ca;
+  transform: translateY(-2px);
+}
+
+/* TAMPILAN HP */
+
+@media (max-width: 650px) {
+  #quotesSecondPage {
+    padding: 25px 15px;
+  }
+
+  #quotesSecondPage .quotes-collection {
+    padding: 15px 0;
+  }
+
+  #quotesSecondPage .quotes-hero-image {
+    height: 220px;
+    margin-bottom: 30px;
+  }
+
+  #quotesSecondPage .quotes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #quotesSecondPage .quote-card {
+    padding: 19px;
+  }
+
+  #quotesSecondPage h2 {
+    font-size: 27px;
+  }
+
+  #quotesSecondPage .page-navigation {
+    justify-content: center;
+  }
+}
+
+/* FOTO TAMPIL UTUH, TIDAK TERPOTONG */
+
+#quotesSecondPage .quotes-hero-image {
+  width: 100%;
+  height: auto;
+  max-height: none;
+  overflow: visible;
+  margin: 0 auto 45px;
+  border-radius: 18px;
+  box-shadow: none;
+}
+
+#quotesSecondPage .quotes-hero-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  border-radius: 18px;
+}
+
+
+/* =================================
+   EDITORIAL QUOTES LANDING PAGE
+================================= */
+
+#quotesSecondPage .quotes-collection {
+  max-width: 1050px;
+  width: 100%;
+  padding: 30px 20px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* FOTO */
+
+#quotesSecondPage .quotes-hero-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 55px;
+  overflow: hidden;
+  border-radius: 3px;
+}
+
+#quotesSecondPage .quotes-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* HEADING */
+
+#quotesSecondPage .eyebrow {
+  text-align: center;
+  color: #91aaa1;
+  font-size: 11px;
+  letter-spacing: 5px;
+  margin-bottom: 20px;
+}
+
+#quotesSecondPage h2 {
+  max-width: 750px;
+  margin: 0 auto 20px;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 5vw, 58px);
+  line-height: 1.2;
+  font-weight: 400;
+  color: #526e6b;
+}
+
+#quotesSecondPage .quotes-subtitle {
+  max-width: 560px;
+  margin: 0 auto 70px;
+  text-align: center;
+  font-family: 'Caveat', cursive;
+  font-size: 23px;
+  line-height: 1.6;
+  color: #82918a;
+}
+
+/* QUOTES TANPA KOTAK */
+
+#quotesSecondPage .quotes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 90px;
+  row-gap: 55px;
+  margin: 0 auto;
+}
+
+#quotesSecondPage .quote-card {
+  display: block;
+  padding: 0 0 25px;
+  margin: 0;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(120, 157, 152, 0.35);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+#quotesSecondPage .quote-card:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+#quotesSecondPage .quote-number {
+  display: none;
+}
+
+#quotesSecondPage .quote-card p {
+  margin: 0;
+  color: #526e6b;
+  font-family: 'Playfair Display', serif;
+  font-size: 19px;
+  line-height: 1.9;
+  text-align: left;
+}
+
+/* NAVIGASI */
+
+#quotesSecondPage .page-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 70px;
+}
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+  #quotesSecondPage .quotes-collection {
+    padding: 15px 5px;
+  }
+
+  #quotesSecondPage .quotes-hero-image {
+    margin-bottom: 35px;
+  }
+
+  #quotesSecondPage .quotes-subtitle {
+    margin-bottom: 45px;
+  }
+
+  #quotesSecondPage .quotes-grid {
+    grid-template-columns: 1fr;
+    row-gap: 30px;
+  }
+
+  #quotesSecondPage .quote-card p {
+    font-size: 17px;
+  }
+}
+
+
+/* =================================
+   QUOTES EDITORIAL LANDING PAGE
+================================= */
+
+#quotesSecondPage .quotes-collection {
+  width: 100%;
+  max-width: 1100px;
+  margin: auto;
+  padding: 35px 25px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* FOTO */
+
+#quotesSecondPage .quotes-hero-image {
+  width: 100%;
+  margin-bottom: 65px;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+#quotesSecondPage .quotes-hero-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* HEADING */
+
+#quotesSecondPage .quotes-heading {
+  text-align: center;
+  margin-bottom: 65px;
+}
+
+#quotesSecondPage .eyebrow {
+  font-size: 10px;
+  letter-spacing: 5px;
+  color: #91aaa1;
+  margin-bottom: 22px;
+}
+
+#quotesSecondPage h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 5vw, 58px);
+  font-weight: 400;
+  line-height: 1.25;
+  color: #526e6b;
+  margin: 0 0 20px;
+}
+
+#quotesSecondPage .quotes-subtitle {
+  max-width: 500px;
+  margin: auto;
+  font-family: 'Caveat', cursive;
+  font-size: 23px;
+  line-height: 1.6;
+  color: #82918a;
+}
+
+#quotesSecondPage .quotes-decoration {
+  display: block;
+  margin-top: 30px;
+  color: #9bbdb4;
+  letter-spacing: 5px;
+}
+
+/* QUOTES */
+
+#quotesSecondPage .quotes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 75px;
+  row-gap: 55px;
+}
+
+#quotesSecondPage .quote-card {
+  display: block;
+  margin: 0;
+  padding: 15px 0 28px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(120, 157, 152, 0.35);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+#quotesSecondPage .quote-card:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+#quotesSecondPage .quote-number {
+  display: block;
+  width: auto;
+  height: auto;
+  margin-bottom: 18px;
+  background: transparent;
+  color: #91aaa1;
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+}
+
+#quotesSecondPage .quote-card p {
+  margin: 0;
+  color: #526e6b;
+  font-family: 'Playfair Display', serif;
+  font-size: 19px;
+  line-height: 1.9;
+}
+
+/* NAVIGASI */
+
+#quotesSecondPage .page-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 70px;
+}
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+  #quotesSecondPage .quotes-collection {
+    padding: 20px 5px;
+  }
+
+  #quotesSecondPage .quotes-hero-image {
+    margin-bottom: 40px;
+  }
+
+  #quotesSecondPage .quotes-heading {
+    margin-bottom: 45px;
+  }
+
+  #quotesSecondPage .quotes-grid {
+    grid-template-columns: 1fr;
+    row-gap: 30px;
+  }
+
+  #quotesSecondPage .quote-card p {
+    font-size: 17px;
+  }
+}
+
+/* FIX FOTO LANDSCAPE AGAR TIDAK TERPOTONG */
+
+#quotesSecondPage .quotes-hero-image {
+  width: 100%;
+  height: auto !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  overflow: visible !important;
+  margin: 0 auto 50px;
+  border-radius: 0;
+}
+
+#quotesSecondPage .quotes-hero-image img {
+  display: block;
+  width: 100%;
+  height: auto !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+  object-position: center;
+}
+
+
+/* =================================
+   FINAL PAGE - WHATSAPP FORM
+================================= */
+
+#finalPage .last-page-content {
+  max-width: 650px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+#finalPage #whatsappForm {
+  width: 100%;
+  margin-top: 35px;
+  text-align: left;
+}
+
+#finalPage .wa-question {
+  margin-bottom: 28px;
+}
+
+#finalPage .wa-question label {
+  display: block;
+  margin-bottom: 12px;
+  color: #596d69;
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+#finalPage .wa-question label span {
+  color: #9a918b;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+}
+
+#finalPage .wa-question textarea {
+  display: block;
+  width: 100%;
+  min-height: 105px;
+  padding: 15px;
+  box-sizing: border-box;
+  resize: vertical;
+
+  border: 1px solid #d9d8cc;
+  border-radius: 12px;
+  outline: none;
+
+  background: rgba(255, 253, 247, 0.8);
+  color: #596d69;
+
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  line-height: 1.7;
+
+  transition: border 0.25s ease;
+}
+
+#finalPage .wa-question textarea:focus {
+  border-color: #8bbdb5;
+}
+
+#finalPage .wa-question textarea::placeholder {
+  color: #aaa69d;
+}
+
+#finalPage .last-note-button {
+  display: block;
+  width: 100%;
+  padding: 15px 20px;
+  margin-top: 35px;
+
+  border: none;
+  border-radius: 30px;
+
+  background: #c5e2dc;
+  color: #456c67;
+
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+#finalPage .last-note-button:hover {
+  background: #a9d2ca;
+  transform: translateY(-2px);
+}
+
+#finalPage .last-note-footer {
+  margin-top: 25px;
+}
+
+@media (max-width: 600px) {
+  #finalPage .last-page-content {
+    padding: 0 12px;
+    box-sizing: border-box;
+  }
+
+  #finalPage .wa-question label {
+    font-size: 14px;
+  }
+}
+
+/* =================================
+   FINAL PAGE - SCRAPBOOK QUESTIONNAIRE
+================================= */
+
+#finalPage .last-page-content {
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+#finalPage #whatsappForm {
+  width: 100%;
+  margin-top: 35px;
+  text-align: left;
+}
+
+/* KARTU PERTANYAAN */
+#finalPage .wa-question {
+  background: rgba(255, 253, 247, 0.88);
+  border: 1px solid #e5ded3;
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 20px;
+  box-shadow: 0 5px 18px rgba(100, 90, 75, 0.05);
+}
+
+/* JUDUL PERTANYAAN */
+#finalPage .wa-question label,
+#finalPage .question-label {
+  display: block;
+  margin-bottom: 17px;
+  color: #596d69;
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+#finalPage .wa-question label span,
+#finalPage .question-label span {
+  color: #bd8585;
+}
+
+/* KOLOM JAWABAN */
+#finalPage .wa-question textarea {
+  display: block;
+  width: 100%;
+  min-height: 100px;
+  padding: 13px 0;
+  box-sizing: border-box;
+  resize: vertical;
+  border: none;
+  border-bottom: 1px solid #c9c2b6;
+  border-radius: 0;
+  outline: none;
+  background: transparent;
+  color: #596d69;
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+#finalPage .wa-question textarea:focus {
+  border-bottom: 2px solid #91b9ae;
+}
+
+#finalPage .wa-question textarea::placeholder {
+  color: #aaa69d;
+  font-size: 12px;
+}
+
+/* PILIHAN JAWABAN */
+#finalPage .wa-question label.choice {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 0;
+  margin: 0;
+  color: #65736e;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.7;
+  cursor: pointer;
+}
+
+#finalPage .wa-question label.choice input {
+  flex-shrink: 0;
+  width: 17px;
+  height: 17px;
+  margin-top: 3px;
+  accent-color: #8bbdb5;
+  cursor: pointer;
+}
+
+/* TOMBOL KIRIM */
+#finalPage .last-note-button {
+  display: block;
+  width: 100%;
+  padding: 16px 20px;
+  margin-top: 30px;
+  border: none;
+  border-radius: 30px;
+  background: #c5e2dc;
+  color: #456c67;
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+#finalPage .last-note-button:hover {
+  background: #a9d2ca;
+  transform: translateY(-2px);
+}
+
+/* TAMPILAN HP */
+@media (max-width: 600px) {
+  #finalPage .last-page-content {
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+
+  #finalPage .wa-question {
+    padding: 19px;
+    border-radius: 12px;
+  }
+
+  #finalPage .wa-question label,
+  #finalPage .question-label {
+    font-size: 14px;
+  }
+
+  #finalPage .wa-question label.choice {
+    font-size: 12px;
+  }
+}
+
+/* =====================================
+   UNDERWATER FISHING - MAIN BACKGROUND
+===================================== */
+
+#fishingPage {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow: hidden;
+  padding: 0;
+  background: #8edbd5;
+}
+
+#fishingPage .ocean-background {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 55px 20px 45px;
+  box-sizing: border-box;
+  isolation: isolate;
+
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255,255,255,.8), transparent 38%),
+    radial-gradient(ellipse at 15% 45%, rgba(186,245,229,.6), transparent 35%),
+    radial-gradient(ellipse at 85% 60%, rgba(89,190,186,.45), transparent 40%),
+    linear-gradient(
+      180deg,
+      #b5f0e7 0%,
+      #80d6d1 35%,
+      #55b9ba 68%,
+      #268b94 100%
+    );
+}
+
+/* CAHAYA MATAHARI DI DALAM AIR */
+
+#fishingPage .ocean-light {
+  position: absolute;
+  inset: -20% -10% auto;
+  height: 85%;
+  z-index: -1;
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      115deg,
+      transparent 25%,
+      rgba(210,255,255,.08) 35%,
+      rgba(220,255,255,.3) 43%,
+      transparent 54%
+    ),
+    linear-gradient(
+      75deg,
+      transparent 40%,
+      rgba(180,250,255,.08) 49%,
+      rgba(220,255,255,.24) 57%,
+      transparent 68%
+    ),
+    linear-gradient(
+      100deg,
+      transparent 10%,
+      rgba(160,245,255,.18) 24%,
+      transparent 38%
+    ),
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(210,255,255,.3),
+      transparent 65%
+    );
+
+  filter: blur(16px);
+  opacity: .8;
+  animation: oceanLightMove 14s ease-in-out infinite alternate;
+}
+
+@keyframes oceanLightMove {
+  0% {
+    transform: translateX(-4%) rotate(-3deg) scale(1);
+    opacity: .55;
+  }
+
+  50% {
+    transform: translateX(2%) rotate(1deg) scale(1.04);
+    opacity: .9;
+  }
+
+  100% {
+    transform: translateX(5%) rotate(3deg) scale(1.02);
+    opacity: .7;
+  }
+}
+
+/* GELEMBUNG LAUT */
+
+#fishingPage .ocean-bubbles {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+#fishingPage .ocean-bubbles span {
+  position: absolute;
+  bottom: -50px;
+  width: 13px;
+  height: 13px;
+  border: 1px solid rgba(220,255,255,.8);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 28%,
+    rgba(255,255,255,.85),
+    rgba(180,245,255,.2) 45%,
+    rgba(255,255,255,.05) 75%
+  );
+  box-shadow:
+    0 0 6px rgba(190,250,255,.35),
+    inset 1px 1px 3px rgba(255,255,255,.5);
+  animation: bubbleRise 9s ease-in-out infinite;
+}
+
+#fishingPage .ocean-bubbles span:nth-child(1) {
+  left: 8%;
+  animation-duration: 8s;
+}
+
+#fishingPage .ocean-bubbles span:nth-child(2) {
+  left: 22%;
+  width: 8px;
+  height: 8px;
+  animation-delay: 2s;
+}
+
+#fishingPage .ocean-bubbles span:nth-child(3) {
+  left: 39%;
+  animation-delay: 4s;
+}
+
+#fishingPage .ocean-bubbles span:nth-child(4) {
+  left: 57%;
+  width: 19px;
+  height: 19px;
+  animation-delay: 1s;
+}
+
+#fishingPage .ocean-bubbles span:nth-child(5) {
+  left: 72%;
+  animation-delay: 3s;
+}
+
+#fishingPage .ocean-bubbles span:nth-child(6) {
+  left: 89%;
+  width: 9px;
+  height: 9px;
+  animation-delay: 5s;
+}
+
+#fishingPage .ocean-bubbles span:nth-child(7) {
+  left: 48%;
+  width: 7px;
+  height: 7px;
+  animation-delay: 6s;
+}
+
+#fishingPage .ocean-bubbles span:nth-child(8) {
+  left: 95%;
+  animation-delay: 2.5s;
+}
+
+@keyframes bubbleRise {
+  0% {
+    transform: translate(0, 0) scale(.7);
+    opacity: 0;
+  }
+  15% {
+    opacity: .75;
+  }
+  35% {
+    transform: translate(12px, -30vh) scale(1);
+  }
+  60% {
+    transform: translate(-9px, -65vh) scale(.9);
+    opacity: .65;
+  }
+  85% {
+    opacity: .5;
+  }
+  100% {
+    transform: translate(14px, -110vh) scale(1.1);
+    opacity: 0;
+  }
+}
+
+/* PEMBUKA */
+
+#fishingPage .fishing-intro {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  color: #285e60;
+  margin-bottom: 15px;
+}
+
+#fishingPage .ocean-eyebrow {
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: #f9fff8;
+  text-shadow: 0 1px 8px rgba(35,105,104,.3);
+  margin-bottom: 18px;
+}
+
+#fishingPage .fishing-intro h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 5vw, 49px);
+  line-height: 1.25;
+  font-weight: 500;
+  color: #fffdf4;
+  text-shadow: 0 3px 15px rgba(35,105,104,.2);
+  margin: 0 0 17px;
+}
+
+#fishingPage .fishing-intro > p:not(.ocean-eyebrow) {
+  max-width: 420px;
+  margin: 0 auto;
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  line-height: 1.9;
+  color: #f4fffa;
+}
+
+/* PETUNJUK */
+
+#fishingPage .fishing-instruction {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: 1px solid rgba(255,255,255,.55);
+  border-radius: 30px;
+  background: rgba(255,255,255,.2);
+  color: #fffdf4;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: .4px;
+  backdrop-filter: blur(8px);
+}
+
+/* AREA PERMAINAN */
+
+#fishingPage .fishing-game {
+  position: relative;
+  width: min(100%, 650px);
+  height: 340px;
+  margin: 5px auto 0;
+  border-radius: 30px;
+  overflow: hidden;
+  touch-action: pan-y;
+}
+
+/* DASAR LAUT */
+
+#fishingPage .sea-floor {
+  position: absolute;
+  bottom: 0;
+  left: -10%;
+  width: 120%;
+  height: 75px;
+  border-radius: 50% 50% 0 0;
+  background:
+    radial-gradient(ellipse at 30% 20%, #fff1cf, transparent 50%),
+    linear-gradient(180deg, #f4dfbd, #d9bc94);
+  box-shadow: 0 -10px 30px rgba(255,255,255,.15);
+}
+
+/* TANAMAN LAUT */
+
+#fishingPage .sea-plant {
+  position: absolute;
+  bottom: 38px;
+  color: rgba(37,119,107,.7);
+  font-size: 45px;
+  animation: plantSway 4s ease-in-out infinite alternate;
+}
+
+#fishingPage .plant-one {
+  left: 5%;
+}
+
+#fishingPage .plant-two {
+  right: 9%;
+  font-size: 55px;
+  animation-delay: 1s;
+}
+
+#fishingPage .plant-three {
+  right: 25%;
+  font-size: 35px;
+  animation-delay: 2s;
+}
+
+@keyframes plantSway {
+  from { transform: rotate(-8deg); }
+  to { transform: rotate(8deg); }
+}
+
+/* TARGET IKAN DAN KERANG */
+
+#fishingPage .sea-target {
+  position: absolute;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.17);
+  border: 1px solid rgba(255,255,255,.35);
+  font-size: 39px;
+  cursor: pointer;
+  user-select: none;
+  animation: targetFloat 3s ease-in-out infinite alternate;
+}
+
+#fishingPage .fish-target {
+  left: 19%;
+  bottom: 85px;
+}
+
+#fishingPage .shell-target {
+  right: 18%;
+  bottom: 65px;
+  animation-delay: .7s;
+}
+
+#fishingPage .star-target {
+  left: 52%;
+  bottom: 105px;
+  animation-delay: 1.3s;
+}
+
+@keyframes targetFloat {
+  from { transform: translateY(-5px) rotate(-5deg); }
+  to { transform: translateY(7px) rotate(5deg); }
+}
+
+/* TALI PANCING */
+
+
+#fishingPage .fishing-line {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 190px;
+  background: rgba(255,255,255,.95);
+  transform: translateX(-50%);
+  transform-origin: top center;
+  transition: left .2s ease, height .2s ease;
+  cursor: crosshair;
+  touch-action: none;
+}
+
+/* Kail di ujung benang */
+#fishingPage .fishing-hook {
+  position: absolute;
+  bottom: -18px;
+  left: -12px;
+  color: #fffdf4;
+  font-size: 30px;
+  text-shadow: 0 2px 8px rgba(0,0,0,.25);
+  transform: rotate(-25deg);
+}
+
+/* JORAN PANCING */
+#fishingPage .fishing-line::before {
+  content: "";
+  position: absolute;
+  width: 125px;
+  height: 8px;
+  left: -123px;
+  top: 0;
+  border-radius: 20px;
+  background: linear-gradient(
+    to bottom,
+    #d9b17b,
+    #986b45
+  );
+  border: 1px solid rgba(255,255,255,.5);
+  transform: rotate(-20deg);
+  transform-origin: right center;
+  box-shadow: 0 3px 8px rgba(0,0,0,.18);
+}
+
+#fishingPage .fishing-hook {
+  position: absolute;
+  bottom: -13px;
+  left: -8px;
+  color: #fffdf4;
+  font-size: 29px;
+  text-shadow: 0 2px 6px rgba(30,100,100,.4);
+}
+
+#fishingPage .drag-hint {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: #fffdf4;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 1px;
+  z-index: 4;
+}
+
+/* TOMBOL TARIK */
+
+#fishingPage .pull-button {
+  position: relative;
+  z-index: 5;
+  margin-top: 12px;
+  padding: 14px 42px;
+  border: 1px solid rgba(255,255,255,.8);
+  border-radius: 40px;
+  background: #fff5e8;
+  color: #438c87;
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  letter-spacing: 2px;
+  box-shadow: 0 7px 20px rgba(25,95,92,.15);
+  cursor: pointer;
+  transition: .25s ease;
+}
+
+#fishingPage .pull-button:hover {
+  transform: translateY(-3px);
+  background: #ffffff;
+  box-shadow: 0 10px 25px rgba(25,95,92,.22);
+}
+
+/* KEJUTAN */
+
+#fishingPage .fishing-surprise {
+  display: none;
+  position: relative;
+  z-index: 10;
+  width: min(90%, 500px);
+  margin: 25px auto 0;
+  padding: 28px 20px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,.65);
+  border-radius: 25px;
+  background: rgba(255,255,255,.2);
+  backdrop-filter: blur(12px);
+  color: white;
+}
+
+#fishingPage .fishing-surprise h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 27px;
+  font-weight: 500;
+  margin: 10px 0;
+}
+
+#fishingPage .fishing-surprise > p:not(.ocean-eyebrow) {
+  font-family: 'Playfair Display', serif;
+  font-size: 13px;
+}
+
+#fishingPage .treasure-display {
+  margin: 20px 0;
+  font-size: 30px;
+  letter-spacing: 5px;
+}
+
+#fishingPage .open-scrapbook-button {
+  padding: 14px 25px;
+  border: none;
+  border-radius: 30px;
+  background: #fff5e8;
+  color: #438c87;
+  font-family: 'Playfair Display', serif;
+  font-size: 13px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 5px 18px rgba(25,95,92,.15);
+}
+
+/* RESPONSIVE HP */
+
+@media (max-width: 600px) {
+
+  #fishingPage .ocean-background {
+    padding: 38px 15px 30px;
+  }
+
+  #fishingPage .fishing-intro {
+    margin-bottom: 12px;
+  }
+
+  #fishingPage .fishing-intro h1 {
+    font-size: 32px;
+  }
+
+  #fishingPage .fishing-intro > p:not(.ocean-eyebrow) {
+    max-width: 310px;
+    font-size: 12px;
+  }
+
+  #fishingPage .fishing-instruction {
+    max-width: 90%;
+    font-size: 10px;
+    line-height: 1.6;
+  }
+
+  #fishingPage .fishing-game {
+    height: 310px;
+    border-radius: 20px;
+  }
+
+  #fishingPage .sea-target {
+    width: 55px;
+    height: 55px;
+    font-size: 33px;
+  }
+
+  #fishingPage .fish-target {
+    left: 10%;
+  }
+
+  #fishingPage .shell-target {
+    right: 10%;
+  }
+
+  #fishingPage .star-target {
+    left: 44%;
+  }
+
+  #fishingPage .fishing-line {
+    height: 175px;
+  }
+
+  #fishingPage .pull-button {
+    margin-top: 8px;
+    padding: 13px 38px;
+  }
+
+  #fishingPage .fishing-surprise {
+    padding: 23px 15px;
+  }
+
+  #fishingPage .fishing-surprise h2 {
+    font-size: 23px;
+  }
+}
+
+
+/* =================================
+   TROPICAL NEON GLOWFISH
+================================= */
+
+#fishingPage .glow-fish {
+  position: absolute;
+  z-index: 2;
+  width: 28px;
+  height: 19px;
+  pointer-events: none;
+
+  /* Bentuk badan, ekor, dan sirip menyatu */
+  clip-path: polygon(
+    0% 50%,
+    17% 28%,
+    17% 43%,
+    30% 27%,
+    48% 19%,
+    55% 2%,
+    66% 21%,
+    81% 30%,
+    100% 50%,
+    81% 70%,
+    66% 79%,
+    55% 98%,
+    48% 81%,
+    30% 73%,
+    17% 57%,
+    17% 72%
+  );
+
+  filter:
+    drop-shadow(0 0 5px currentColor)
+    drop-shadow(0 0 12px currentColor);
+}
+
+/* Mata ikan */
+#fishingPage .glow-fish::before {
+  content: "";
+  position: absolute;
+  top: 7px;
+  right: 6px;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #173d55;
+  box-shadow: 0 0 5px white;
+}
+
+/* Kilau pada badan */
+#fishingPage .glow-fish::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 9px;
+  width: 12px;
+  height: 1px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.65);
+  transform: rotate(-8deg);
+}
+
+/* WARNA IKAN */
+#fishingPage .pink-fish {
+  color: #ff65d2;
+  background: linear-gradient(135deg, #ffd0f0, #ff42b9, #9e36e9);
+}
+
+#fishingPage .cyan-fish {
+  color: #50eaff;
+  background: linear-gradient(135deg, #d1ffff, #32dff0, #1688ff);
+}
+
+#fishingPage .purple-fish {
+  color: #bd7aff;
+  background: linear-gradient(135deg, #f0d4ff, #b45cff, #7132db);
+}
+
+#fishingPage .yellow-fish {
+  color: #ffe879;
+  background: linear-gradient(135deg, #fffbd0, #ffcf45, #ff8735);
+}
+
+#fishingPage .green-fish {
+  color: #6dffc4;
+  background: linear-gradient(135deg, #d5ffe8, #40e6a0, #00a98b);
+}
+
+#fishingPage .blue-fish {
+  color: #8abaff;
+  background: linear-gradient(135deg, #d9eaff, #648fff, #5550d8);
+}
+
+#fishingPage .orange-fish {
+  color: #ffad65;
+  background: linear-gradient(135deg, #fff0c5, #ff9c43, #ff5570);
+}
+
+/* VARIASI GERAK 30 IKAN */
+#fishingPage .fish-1  { animation-duration: 13s; }
+#fishingPage .fish-2  { animation-duration: 17s; }
+#fishingPage .fish-3  { animation-duration: 11s; }
+#fishingPage .fish-4  { animation-duration: 19s; }
+#fishingPage .fish-5  { animation-duration: 15s; }
+#fishingPage .fish-6  { animation-duration: 22s; }
+#fishingPage .fish-7  { animation-duration: 12s; }
+#fishingPage .fish-8  { animation-duration: 18s; }
+#fishingPage .fish-9  { animation-duration: 20s; }
+#fishingPage .fish-10 { animation-duration: 14s; }
+#fishingPage .fish-11 { animation-duration: 23s; }
+#fishingPage .fish-12 { animation-duration: 16s; }
+#fishingPage .fish-13 { animation-duration: 12s; }
+#fishingPage .fish-14 { animation-duration: 21s; }
+#fishingPage .fish-15 { animation-duration: 15s; }
+#fishingPage .fish-16 { animation-duration: 19s; }
+#fishingPage .fish-17 { animation-duration: 13s; }
+#fishingPage .fish-18 { animation-duration: 24s; }
+#fishingPage .fish-19 { animation-duration: 17s; }
+#fishingPage .fish-20 { animation-duration: 14s; }
+#fishingPage .fish-21 { animation-duration: 22s; }
+#fishingPage .fish-22 { animation-duration: 16s; }
+#fishingPage .fish-23 { animation-duration: 20s; }
+#fishingPage .fish-24 { animation-duration: 11s; }
+#fishingPage .fish-25 { animation-duration: 18s; }
+#fishingPage .fish-26 { animation-duration: 23s; }
+#fishingPage .fish-27 { animation-duration: 15s; }
+#fishingPage .fish-28 { animation-duration: 21s; }
+#fishingPage .fish-29 { animation-duration: 13s; }
+#fishingPage .fish-30 { animation-duration: 19s; }
+
+/* 30 POSISI IKAN */
+#fishingPage .fish-1  { top: 10%; left: 8%;  animation: fishFloat1 13s ease-in-out infinite; }
+#fishingPage .fish-2  { top: 18%; left: 35%; animation: fishFloat2 17s ease-in-out infinite; }
+#fishingPage .fish-3  { top: 8%; left: 63%; animation: fishFloat3 15s ease-in-out infinite; }
+#fishingPage .fish-4  { top: 24%; left: 85%; animation: fishFloat4 19s ease-in-out infinite; }
+#fishingPage .fish-5  { top: 32%; left: 15%; animation: fishFloat5 16s ease-in-out infinite; }
+#fishingPage .fish-6  { top: 38%; left: 45%; animation: fishFloat6 20s ease-in-out infinite; }
+#fishingPage .fish-7  { top: 30%; left: 73%; animation: fishFloat7 14s ease-in-out infinite; }
+#fishingPage .fish-8  { top: 48%; left: 5%;  animation: fishFloat8 18s ease-in-out infinite; }
+#fishingPage .fish-9  { top: 52%; left: 28%; animation: fishFloat1 21s ease-in-out infinite reverse; }
+#fishingPage .fish-10 { top: 45%; left: 57%; animation: fishFloat2 16s ease-in-out infinite reverse; }
+#fishingPage .fish-11 { top: 55%; left: 82%; animation: fishFloat3 19s ease-in-out infinite reverse; }
+#fishingPage .fish-12 { top: 65%; left: 12%; animation: fishFloat4 15s ease-in-out infinite reverse; }
+#fishingPage .fish-13 { top: 68%; left: 38%; animation: fishFloat5 22s ease-in-out infinite; }
+#fishingPage .fish-14 { top: 62%; left: 68%; animation: fishFloat6 17s ease-in-out infinite; }
+#fishingPage .fish-15 { top: 72%; left: 90%; animation: fishFloat7 20s ease-in-out infinite; }
+#fishingPage .fish-16 { top: 80%; left: 24%; animation: fishFloat8 14s ease-in-out infinite; }
+#fishingPage .fish-17 { top: 84%; left: 50%; animation: fishFloat1 18s ease-in-out infinite reverse; }
+#fishingPage .fish-18 { top: 78%; left: 75%; animation: fishFloat2 21s ease-in-out infinite reverse; }
+#fishingPage .fish-19 { top: 15%; left: 92%; animation: fishFloat3 16s ease-in-out infinite; }
+#fishingPage .fish-20 { top: 42%; left: 92%; animation: fishFloat4 19s ease-in-out infinite; }
+#fishingPage .fish-21 { top: 92%; left: 8%;  animation: fishFloat5 15s ease-in-out infinite; }
+#fishingPage .fish-22 { top: 90%; left: 38%; animation: fishFloat6 22s ease-in-out infinite reverse; }
+#fishingPage .fish-23 { top: 90%; left: 65%; animation: fishFloat7 17s ease-in-out infinite reverse; }
+#fishingPage .fish-24 { top: 92%; left: 88%; animation: fishFloat8 20s ease-in-out infinite; }
+#fishingPage .fish-25 { top: 4%; left: 45%;  animation: fishFloat5 19s ease-in-out infinite; }
+#fishingPage .fish-26 { top: 26%; left: 55%; animation: fishFloat6 15s ease-in-out infinite reverse; }
+#fishingPage .fish-27 { top: 58%; left: 48%; animation: fishFloat7 21s ease-in-out infinite; }
+#fishingPage .fish-28 { top: 74%; left: 57%; animation: fishFloat8 16s ease-in-out infinite reverse; }
+#fishingPage .fish-29 { top: 36%; left: 30%; animation: fishFloat3 18s ease-in-out infinite; }
+#fishingPage .fish-30 { top: 12%; left: 76%; animation: fishFloat1 23s ease-in-out infinite reverse; }
+
+/* GELEMBUNG LAUT TAMBAHAN */
+#fishingPage .ocean-bubbles span {
+  animation-name: bubbleRise;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+#fishingPage .ocean-bubbles span:nth-child(1) {
+  left: 8%;
+  animation-duration: 8s;
+}
+
+#fishingPage .ocean-bubbles span:nth-child(2) {
+  left: 22%;
+  animation-duration: 11s;
+  animation-delay: 2s;
+}
+
+#fishingPage .ocean-bubbles span:nth-child(3) {
+  left: 42%;
+  animation-duration: 9s;
+  animation-delay: 1s;
+}
+
+#fishingPage .ocean-bubbles span:nth-child(4) {
+  left: 60%;
+  animation-duration: 12s;
+  animation-delay: 3s;
+}
+
+#fishingPage .ocean-bubbles span:nth-child(5) {
+  left: 78%;
+  animation-duration: 10s;
+  animation-delay: 1.5s;
+}
+
+#fishingPage .ocean-bubbles span:nth-child(6) {
+  left: 92%;
+  animation-duration: 13s;
+  animation-delay: 4s;
+}
+
+#fishingPage .ocean-bubbles span:nth-child(7) {
+  left: 32%;
+  animation-duration: 14s;
+  animation-delay: 5s;
+}
+
+#fishingPage .ocean-bubbles span:nth-child(8) {
+  left: 70%;
+  animation-duration: 9s;
+  animation-delay: 6s;
+}
+
+@keyframes bubbleRise {
+  0% {
+    bottom: -30px;
+    opacity: 0;
+    transform: translateX(0) scale(.7);
+  }
+  20% {
+    opacity: .7;
+  }
+  50% {
+    transform: translateX(18px) scale(1);
+  }
+  100% {
+    bottom: 110%;
+    opacity: 0;
+    transform: translateX(-15px) scale(.8);
+  }
+}
+
+
+/* =================================
+   ANIMASI RENANG IKAN
+================================= */
+
+@keyframes fishFloat1 {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(25px, -8px); }
+  50%  { transform: translate(55px, 3px); }
+  75%  { transform: translate(35px, 12px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes fishFloat2 {
+  0%   { transform: translate(0, 0) scaleX(-1); }
+  30%  { transform: translate(-30px, 9px) scaleX(-1); }
+  60%  { transform: translate(-65px, -5px) scaleX(-1); }
+  100% { transform: translate(0, 0) scaleX(-1); }
+}
+
+@keyframes fishFloat3 {
+  0%   { transform: translate(0, 0); }
+  35%  { transform: translate(20px, -12px); }
+  65%  { transform: translate(48px, 5px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes fishFloat4 {
+  0%   { transform: translate(0, 0) scaleX(-1); }
+  30%  { transform: translate(-25px, -10px) scaleX(-1); }
+  60%  { transform: translate(-58px, 8px) scaleX(-1); }
+  100% { transform: translate(0, 0) scaleX(-1); }
+}
+
+@keyframes fishFloat5 {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(-18px, 8px); }
+  55%  { transform: translate(-45px, 16px); }
+  80%  { transform: translate(-25px, -5px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes fishFloat6 {
+  0%   { transform: translate(0, 0) scaleX(-1); }
+  35%  { transform: translate(25px, -10px) scaleX(-1); }
+  65%  { transform: translate(55px, 6px) scaleX(-1); }
+  100% { transform: translate(0, 0) scaleX(-1); }
+}
+
+@keyframes fishFloat7 {
+  0%   { transform: translate(0, 0); }
+  30%  { transform: translate(35px, -12px); }
+  60%  { transform: translate(70px, 5px); }
+  85%  { transform: translate(30px, 10px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes fishFloat8 {
+  0%   { transform: translate(0, 0) scaleX(-1); }
+  30%  { transform: translate(-20px, 12px) scaleX(-1); }
+  60%  { transform: translate(-50px, -8px) scaleX(-1); }
+  85%  { transform: translate(-25px, -12px) scaleX(-1); }
+  100% { transform: translate(0, 0) scaleX(-1); }
+}
+
+
+/* OCEAN WAVE APPROACH TRANSITION */
+
+#oceanBookTransition {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: none;
+  overflow: hidden;
+  pointer-events: none;
+  background: #087f91;
+}
+
+#oceanBookTransition.active {
+  display: block;
+}
+
+#oceanBookTransition .ocean-wave {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  transform: scale(0.15);
+  transform-origin: center center;
+  opacity: 0;
+}
+
+#oceanBookTransition.active .ocean-wave {
+  animation: oceanApproach 2.8s cubic-bezier(.2,.65,.3,1) forwards;
+}
+
+
+@keyframes oceanApproach {
+  0% {
+    transform: scale(0.15);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  45% {
+    transform: scale(4.5);
+    opacity: 1;
+  }
+
+  60% {
+    transform: scale(4.5);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0.15);
+    opacity: 0;
+  }
+}
+
+
+/* =================================
+   MESSAGE IN A BOTTLE
+================================= */
+
+#bottlePage {
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 45px 24px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(190,255,246,.8), transparent 55%),
+    linear-gradient(180deg, #b7f3e9 0%, #70d5d0 48%, #238f9e 100%);
+}
+
+#bottlePage .bottle-world {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  min-height: 75vh;
+  margin: auto;
+  padding: 35px 20px;
+  text-align: center;
+}
+
+#bottlePage .bottle-heading {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 45px;
+}
+
+#bottlePage .bottle-heading .eyebrow {
+  color: #287f83;
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+#bottlePage .bottle-heading h2 {
+  margin: 12px 0;
+  color: #176b75;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(30px, 5vw, 48px);
+}
+
+#bottlePage .bottle-heading p {
+  color: #286f75;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+#bottlePage .bottle-heading span {
+  display: block;
+  margin-top: 18px;
+  color: #fff8dc;
+  font-size: 20px;
+}
+
+#bottlePage .bottle-grid {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px 35px;
+  max-width: 750px;
+  min-height: 350px;
+  margin: 0 auto;
+}
+
+#bottlePage .message-bottle {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  width: 105px;
+  min-width: 105px;
+  min-height: 145px;
+  padding: 12px 5px;
+
+  border: 1px solid rgba(255,255,255,.4);
+  border-radius: 50%;
+  background: rgba(230,255,250,.12);
+
+  box-shadow:
+    0 10px 30px rgba(12,100,110,.12),
+    inset 0 0 20px rgba(255,255,255,.18);
+
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+
+  animation: bottleFloat 4s ease-in-out infinite;
+  transition: background .3s ease;
+}
+
+#bottlePage .message-bottle:nth-child(1) {
+  margin-top: 35px;
+  rotate: -9deg;
+}
+
+#bottlePage .message-bottle:nth-child(2) {
+  margin-top: -45px;
+  rotate: 8deg;
+  animation-duration: 5.5s;
+}
+
+#bottlePage .message-bottle:nth-child(3) {
+  margin-top: 55px;
+  rotate: -5deg;
+  animation-duration: 4.5s;
+}
+
+#bottlePage .message-bottle:nth-child(4) {
+  margin-top: -30px;
+  rotate: 10deg;
+  animation-duration: 6s;
+}
+
+#bottlePage .message-bottle:nth-child(5) {
+  margin-top: 15px;
+  rotate: -7deg;
+  animation-duration: 5s;
+}
+
+#bottlePage .message-bottle:hover {
+  background: rgba(255,255,255,.38);
+  transform: translateY(-10px);
+}
+
+#bottlePage .bottle-number {
+  color: #fff;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+
+/* BENTUK BOTOL KACA */
+
+#bottlePage .bottle-icon {
+  position: relative;
+  display: block;
+  width: 34px;
+  height: 55px;
+  margin-top: 12px;
+  border: 2px solid rgba(255,255,255,.9);
+  border-radius: 13px 13px 11px 11px;
+  background: linear-gradient(
+    105deg,
+    rgba(255,255,255,.75),
+    rgba(158,235,232,.35) 35%,
+    rgba(255,255,255,.65) 75%,
+    rgba(120,210,210,.35)
+  );
+  box-shadow:
+    inset 5px 0 7px rgba(255,255,255,.55),
+    inset -4px 0 8px rgba(30,130,140,.12),
+    0 0 18px rgba(255,255,255,.4);
+}
+
+/* LEHER BOTOL */
+
+#bottlePage .bottle-neck {
+  position: absolute;
+  width: 14px;
+  height: 15px;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 2px solid rgba(255,255,255,.9);
+  border-bottom: none;
+  border-radius: 5px 5px 0 0;
+  background: rgba(190,245,239,.65);
+}
+
+/* GABUS */
+
+#bottlePage .bottle-cork {
+  position: absolute;
+  width: 13px;
+  height: 6px;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 4px 4px 2px 2px;
+  background: #c99b6b;
+  box-shadow: inset 0 1px 2px rgba(255,255,255,.5);
+}
+
+/* SURAT DI DALAM BOTOL */
+
+#bottlePage .bottle-paper {
+  position: absolute;
+  width: 16px;
+  height: 27px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -40%) rotate(-8deg);
+  border-radius: 5px;
+  background: #fff1cf;
+  box-shadow: 0 2px 5px rgba(50,100,100,.15);
+}
+
+#bottlePage .bottle-paper::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 2px;
+  left: 3px;
+  top: 7px;
+  background: #d8b98a;
+  box-shadow: 0 6px #d8b98a, 0 12px #d8b98a;
+}
+
+/* PANTULAN CAHAYA */
+
+#bottlePage .bottle-shine {
+  position: absolute;
+  width: 3px;
+  height: 28px;
+  top: 8px;
+  left: 6px;
+  border-radius: 10px;
+  background: rgba(255,255,255,.65);
+  transform: rotate(5deg);
+}
+
+#bottlePage .bottle-hint {
+  margin-top: 55px;
+  color: rgba(255,255,255,.9);
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+@keyframes bottleFloat {
+  0%, 100% {
+    transform: translate(0, 0) rotate(-5deg);
+  }
+
+  25% {
+    transform: translate(7px, -9px) rotate(4deg);
+  }
+
+  50% {
+    transform: translate(-3px, -16px) rotate(-3deg);
+  }
+
+  75% {
+    transform: translate(-8px, -7px) rotate(5deg);
+  }
+}
+
+/* Gerakan berbeda untuk setiap botol */
+
+#bottlePage .message-bottle:nth-child(2) {
+  animation-duration: 5.5s;
+  animation-delay: -1s;
+}
+
+#bottlePage .message-bottle:nth-child(3) {
+  animation-duration: 4.5s;
+  animation-delay: -2.5s;
+}
+
+#bottlePage .message-bottle:nth-child(4) {
+  animation-duration: 6s;
+  animation-delay: -3s;
+}
+
+#bottlePage .message-bottle:nth-child(5) {
+  animation-duration: 5s;
+  animation-delay: -1.8s;
+}
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+  #bottlePage {
+    padding: 28px 12px;
+  }
+
+  #bottlePage .bottle-world {
+    padding: 25px 8px;
+  }
+
+  #bottlePage .bottle-heading {
+    margin-bottom: 30px;
+  }
+
+  #bottlePage .bottle-heading p {
+    font-size: 12px;
+  }
+
+ #bottlePage .bottle-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 15px 18px;
+  max-width: 340px;
+  min-height: 380px;
+  margin: 0 auto;
+}
+
+#bottlePage .message-bottle {
+  width: 85px;
+  min-width: 85px;
+  min-height: 125px;
+  padding: 8px 4px;
+}
+
+#bottlePage .message-bottle:nth-child(1) {
+  margin-top: 25px;
+}
+
+#bottlePage .message-bottle:nth-child(2) {
+  margin-top: -30px;
+}
+
+#bottlePage .message-bottle:nth-child(3) {
+  margin-top: 35px;
+}
+
+#bottlePage .message-bottle:nth-child(4) {
+  margin-top: -25px;
+}
+
+#bottlePage .message-bottle:nth-child(5) {
+  margin-top: 10px;
+}
+
+  #bottlePage .bottle-hint {
+    margin-top: 35px;
+    font-size: 10px;
+  }
+}
+
+
+/* =================================
+   BOTTLE LETTER POPUP
+================================= */
+
+#bottleModal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(9, 63, 76, .55);
+  backdrop-filter: blur(8px);
+}
+
+#bottleModal.hidden {
+  display: none;
+}
+
+#bottleModal .bottle-letter {
+  position: relative;
+  width: 100%;
+  max-width: 430px;
+  padding: 45px 32px 35px;
+  border: 1px solid #fff4d8;
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at top right, #fff9e9, transparent 45%),
+    linear-gradient(145deg, #fff8e9, #f4e5c9);
+  box-shadow: 0 25px 70px rgba(0,0,0,.2);
+  text-align: center;
+  animation: letterAppear .45s ease both;
+}
+
+#bottleModal .bottle-close {
+  position: absolute;
+  top: 12px;
+  right: 17px;
+  width: 35px;
+  height: 35px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(174,139,94,.12);
+  color: #8c7658;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+#bottleModal .letter-decoration {
+  display: block;
+  margin-bottom: 20px;
+  color: #83b9b0;
+  font-size: 22px;
+}
+
+#bottleModal .eyebrow {
+  color: #a88a63;
+  font-size: 9px;
+  letter-spacing: 3px;
+}
+
+#bottleModal h2 {
+  margin: 14px 0;
+  color: #6f6655;
+  font-family: "Playfair Display", serif;
+  font-size: 27px;
+}
+
+#bottleModal .letter-divider {
+  margin: 20px 0;
+  color: #c49b83;
+  font-size: 20px;
+}
+
+#bottleModal #bottleLetterMessage {
+  min-height: 90px;
+  color: #766b5b;
+  font-family: "Playfair Display", serif;
+  font-size: 15px;
+  line-height: 2;
+}
+
+#bottleModal .letter-footer {
+  display: block;
+  margin-top: 25px;
+  color: #a88a63;
+  font-family: "Caveat", cursive;
+  font-size: 19px;
+}
+
+@keyframes letterAppear {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 480px) {
+  #bottleModal .bottle-letter {
+    padding: 42px 23px 30px;
+  }
+
+  #bottleModal h2 {
+    font-size: 24px;
+  }
+}
+
+
+/* =================================
+   A LITTLE UNIVERSE
+================================= */
+
+#universePage {
+  min-height: 100vh;
+  padding: 45px 24px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 45%, rgba(82,75,151,.38), transparent 55%),
+    radial-gradient(circle at 15% 15%, rgba(77,118,174,.3), transparent 35%),
+    linear-gradient(160deg, #101b43 0%, #171b50 48%, #29204e 100%);
+}
+
+#universePage .universe-world {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  min-height: 80vh;
+  margin: auto;
+  padding: 35px 20px;
+  text-align: center;
+}
+
+#universePage .universe-heading {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 30px;
+}
+
+#universePage .universe-heading .eyebrow {
+  color: #b4b1e7;
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+#universePage .universe-heading h2 {
+  margin: 13px 0;
+  color: #f4eaff;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(32px, 5vw, 48px);
+  text-shadow: 0 0 25px rgba(190,170,255,.5);
+}
+
+#universePage .universe-heading p {
+  color: #c8c5e9;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+#universePage .universe-decoration {
+  display: block;
+  margin-top: 20px;
+  color: #e5d9ff;
+  font-size: 21px;
+}
+
+/* AREA BINTANG */
+
+#universePage .universe-sky {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 700px;
+  height: 340px;
+  margin: 35px auto;
+  padding: 0;
+  border: 1px solid rgba(219,208,255,.16);
+  border-radius: 28px;
+  background: rgba(12,15,53,.25);
+  box-shadow:
+    inset 0 0 60px rgba(123,103,211,.12),
+    0 0 40px rgba(108,95,197,.1);
+  isolation: isolate;
+}
+
+#universePage .universe-star {
+  position: absolute;
+  z-index: 2;
+}
+
+#universePage .universe-star:nth-child(1) {
+  left: 12%;
+  top: 18%;
+}
+
+#universePage .universe-star:nth-child(2) {
+  left: 37%;
+  top: 38%;
+}
+
+#universePage .universe-star:nth-child(3) {
+  left: 65%;
+  top: 13%;
+}
+
+#universePage .universe-star:nth-child(4) {
+  left: 83%;
+  top: 48%;
+}
+
+#universePage .universe-star:nth-child(5) {
+  left: 23%;
+  top: 75%;
+}
+
+#universePage .universe-star:nth-child(6) {
+  left: 53%;
+  top: 80%;
+}
+
+#universePage .universe-star:nth-child(7) {
+  left: 73%;
+  top: 65%;
+}
+
+/* BINTANG */
+
+#universePage .universe-star {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  justify-self: center;
+  align-self: center;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: #fff4c9;
+  font-size: 27px;
+  cursor: pointer;
+  text-shadow:
+    0 0 8px #fff,
+    0 0 18px #c9b7ff,
+    0 0 35px #9e8cff;
+  animation: starTwinkle 2.5s ease-in-out infinite;
+  transition: transform .3s ease;
+    transform: translate(-50%, -50%);
+}
+
+#universePage .universe-star:nth-child(2) {
+  animation-delay: -.7s;
+  font-size: 22px;
+}
+
+#universePage .universe-star:nth-child(3) {
+  animation-delay: -1.4s;
+}
+
+#universePage .universe-star:nth-child(4) {
+  animation-delay: -.3s;
+}
+
+#universePage .universe-star:nth-child(5) {
+  animation-delay: -1.8s;
+}
+
+#universePage .universe-star:nth-child(6) {
+  animation-delay: -.9s;
+}
+
+#universePage .universe-star:nth-child(7) {
+  animation-delay: -1.2s;
+}
+
+#universePage .universe-star:hover {
+  transform: translate(-50%, -50%) scale(1.5);
+}
+
+@keyframes starTwinkle {
+  0%, 100% {
+    opacity: .55;
+    filter: brightness(.8);
+  }
+
+  50% {
+    opacity: 1;
+    filter: brightness(1.5);
+  }
+}
+
+#universePage .universe-hint {
+  margin: 30px 0;
+  color: #c7c2ed;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+#universePage .universe-navigation {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  #universePage {
+    padding: 28px 12px;
+  }
+
+  #universePage .universe-world {
+    padding: 25px 8px;
+  }
+
+  #universePage .universe-sky {
+    height: 300px;
+    margin: 25px auto;
+    padding: 0;
+  }
+
+  #universePage .universe-star {
+    width: 44px;
+    height: 44px;
+    font-size: 24px;
+  }
+}
+
+/* CONSTELLATION LINES */
+
+#universePage .universe-sky {
+  position: relative;
+  isolation: isolate;
+}
+
+#universePage .constellation-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+#universePage .constellation-path {
+  fill: none;
+  stroke: rgba(210, 202, 255, .65);
+  stroke-width: 1.5;
+  stroke-dasharray: 5 7;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 4px #b8aaff);
+}
+
+#starModal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(8, 10, 35, .75);
+  backdrop-filter: blur(8px);
+}
+
+#starModal.hidden {
+  display: none;
+}
+
+.star-modal-content {
+  width: 85%;
+  max-width: 360px;
+  padding: 35px 25px;
+  text-align: center;
+  border: 1px solid rgba(220, 210, 255, .35);
+  border-radius: 24px;
+  background: linear-gradient(145deg, #24245c, #403365);
+  color: #f8edff;
+  box-shadow: 0 0 40px rgba(173, 150, 255, .25);
+}
+
+.star-modal-content span {
+  font-size: 35px;
+  color: #fff0b8;
+}
+
+.star-modal-content p {
+  margin: 20px 0;
+  line-height: 1.8;
+}
+
+.star-modal-content button {
+  padding: 10px 25px;
+  border: 1px solid #c9b7ff;
+  border-radius: 30px;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+}
+
+
+#gardenPage {
+  min-height: 100vh;
+  padding: 45px 20px;
+  background: linear-gradient(160deg, #e4f2e8, #f8f1df, #d7ebe2);
+  color: #526b59;
+}
+
+#gardenPage .garden-world {
+  max-width: 850px;
+  margin: auto;
+  text-align: center;
+}
+
+#gardenPage .garden-heading h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(32px, 5vw, 48px);
+  color: #557b61;
+}
+
+#gardenPage .garden-heading p {
+  line-height: 1.8;
+}
+
+#gardenPage .seed-selection {
+  margin: 35px 0;
+}
+
+#gardenPage .seed-selection button,
+#gardenPage .garden-actions button {
+  margin: 7px;
+  padding: 12px 18px;
+  border: 1px solid #b8cfb9;
+  border-radius: 25px;
+  background: #fffdf5;
+  color: #557b61;
+  cursor: pointer;
+}
+
+#gardenPage .garden-pots {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin: 30px 0;
+}
+
+#gardenPage .garden-pot {
+  width: 180px;
+  min-height: 190px;
+  padding: 22px 12px;
+  border: 1px solid #c7d9c3;
+  border-radius: 24px;
+  background: rgba(255,255,255,.65);
+  box-shadow: 0 8px 22px rgba(90,120,90,.1);
+}
+
+#gardenPage .plant-display {
+  margin: 15px 0;
+  font-size: 55px;
+  min-height: 70px;
+}
+
+#gardenPage .garden-pot button {
+  padding: 9px 16px;
+  border: none;
+  border-radius: 20px;
+  background: #a9c9a8;
+  color: white;
+  cursor: pointer;
+}
+
+#gardenPage #gardenStatus {
+  min-height: 50px;
+  margin: 25px auto;
+  padding: 15px;
+  line-height: 1.8;
+  color: #557b61;
+}
+
+#gardenPage .garden-navigation {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+#gardenPage .garden-needs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 15px 0;
+}
+
+#gardenPage .garden-needs span {
+  padding: 10px 16px;
+  border-radius: 20px;
+  background: #fffdf5;
+  color: #557b61;
+  font-size: 13px;
+}
+
+#gardenPage .plant-display {
+  display: inline-block;
+  animation: plantSway 3s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+@keyframes plantSway {
+  0%, 100% {
+    transform: rotate(-4deg);
+  }
+
+  50% {
+    transform: rotate(4deg);
+  }
+}
+
+
+#gardenPage .plant-display.bloomed {
+  animation: flowerBloom 1.2s ease-out;
+}
+
+@keyframes flowerBloom {
+  0% {
+    transform: scale(.3) rotate(-15deg);
+    opacity: .3;
+  }
+
+  60% {
+    transform: scale(1.3) rotate(8deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}
+
+
+#gardenPage .flower-quote {
+  max-width: 480px;
+  margin: 25px auto;
+  padding: 28px 25px;
+  border: 1px solid #c6d9bd;
+  border-radius: 24px;
+  background: rgba(255, 253, 245, .85);
+  box-shadow: 0 10px 30px rgba(90, 120, 90, .12);
+  animation: quoteAppear 1s ease both;
+}
+
+#gardenPage .flower-quote span {
+  font-size: 30px;
+  color: #91b58e;
+}
+
+#gardenPage .flower-quote p {
+  color: #55745c;
+  font-family: "Playfair Display", serif;
+  font-size: 17px;
+  line-height: 1.9;
+}
+
+@keyframes quoteAppear {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#gardenPage .plant-display {
+  transition: transform .5s ease, filter .5s ease;
+}
+
+#gardenPage .plant-display:not(.bloomed) {
+  filter: drop-shadow(0 4px 5px rgba(90, 130, 90, .2));
+}
+
+#gardenPage .plant-display.bloomed {
+  filter: drop-shadow(0 0 12px rgba(255, 205, 120, .65));
+}
+
+
+#gardenPage .garden-tools {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  margin: 30px auto;
+}
+
+#gardenPage .garden-tool {
+  width: 95px;
+  height: 95px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border: 2px dashed #b5cda9;
+  border-radius: 25px;
+  background: #fffdf5;
+  font-size: 35px;
+  cursor: grab;
+  transition: transform .25s ease, box-shadow .25s ease;
+  user-select: none;
+}
+
+#gardenPage .garden-tool span {
+  font-size: 11px;
+  color: #66816a;
+}
+
+#gardenPage .garden-tool:active {
+  cursor: grabbing;
+  transform: scale(1.12);
+}
+
+#gardenPage .garden-pot {
+  transition: transform .25s ease, background .25s ease;
+}
+
+#gardenPage .garden-pot.drag-over {
+  transform: scale(1.05);
+  background: #e7f3df;
+  border: 2px dashed #8eae87;
+}
+
+
+#gardenPage .seed-selection {
+  padding: 22px;
+  border-radius: 25px;
+  background: rgba(255,255,255,.45);
+  border: 1px solid #c7d9c3;
+}
+
+#gardenPage .seed-selection h3 {
+  margin-bottom: 18px;
+  color: #557b61;
+  font-family: "Playfair Display", serif;
+}
+
+#gardenPage .seed-selection button {
+  min-width: 105px;
+  padding: 15px 18px;
+  border: 1px solid #c4d7bd;
+  border-radius: 20px;
+  background: #fffdf5;
+  color: #557b61;
+  font-size: 14px;
+  cursor: grab;
+  transition: .3s ease;
+}
+
+#gardenPage .seed-selection button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(90,120,90,.13);
+}
+
+#gardenPage .garden-tool:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(90,120,90,.13);
+}
+
+#gardenPage .garden-pot button:disabled {
+  opacity: .6;
+  cursor: default;
+}
+
+#gardenPage .garden-pot.seed-planted {
+  animation: seedDrop .6s ease;
+}
+
+@keyframes seedDrop {
+  0% {
+    transform: scale(.9);
+  }
+
+  60% {
+    transform: scale(1.06);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+#gardenPage .plant-progress {
+  width: 85%;
+  height: 8px;
+  margin: 10px auto 5px;
+  background: #e5eadf;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+#gardenPage .plant-progress-fill {
+  width: 0%;
+  height: 100%;
+  background: #8eae87;
+  border-radius: 20px;
+  transition: width 1s ease;
+}
+
+#gardenPage .plant-stage {
+  font-size: 11px;
+  color: #66816a;
+  text-align: center;
+}
+
+/* PEMBERITAHUAN PUTAR HP */
+#gardenPage .garden-rotate-notice {
+  display: none;
+  text-align: center;
+  padding: 15px;
+  margin: 15px auto;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 18px;
+  color: #526b50;
+}
+
+#gardenPage .rotate-icon {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+#gardenPage .garden-rotate-notice p {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 5px 0;
+}
+
+#gardenPage .garden-rotate-notice span {
+  font-size: 12px;
+}
+
+@media screen and (max-width: 768px) and (orientation: portrait) {
+  #gardenPage .garden-rotate-notice {
+    display: block;
+  }
+}
+
+#gardenPage {
+  background-image: url("images/garden-background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+
+#gardenPage .garden-world {
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(2px);
+  border-radius: 25px;
+  padding: 25px;
+}
+
+@media (max-width: 768px) {
+  #gardenPage {
+    background-position: center;
+    background-size: cover;
+  }
+}
+
+@media (max-width: 900px) and (orientation: landscape) {
+  #gardenPage .garden-pots {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  #gardenPage .garden-pot {
+    flex: 1;
+    min-width: 0;
+  }
+
+  #gardenPage .garden-rotate-notice {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) and (orientation: landscape) {
+  #gardenPage {
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+  }
+
+  #gardenPage .garden-world {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 900px) and (orientation: landscape) {
+  #gardenPage .garden-heading {
+    margin-bottom: 12px;
+  }
+
+  #gardenPage .garden-heading h2 {
+    font-size: 25px;
+  }
+
+  #gardenPage .garden-pots {
+    max-width: 650px;
+    margin: 15px auto;
+  }
+
+  #gardenPage .plant-display {
+    font-size: 45px;
+  }
+
+  #gardenPage .garden-tools {
+    margin: 15px auto;
+  }
+
+  #gardenPage .garden-tool {
+    width: 65px;
+    height: 65px;
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+  #gardenPage .garden-rotate-notice {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(238, 246, 231, 0.96);
+    border-radius: 0;
+    padding: 30px;
+  }
+
+  #gardenPage .rotate-icon {
+    font-size: 55px;
+  }
+
+  #gardenPage .garden-rotate-notice p {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+  #gardenPage .garden-world > *:not(.garden-rotate-notice) {
+    visibility: hidden;
+  }
+}
+
+.garden-drag-ghost {
+  position: fixed;
+  z-index: 10000;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  font-size: 42px;
+}
+
+#gardenPage .garden-tool {
+  touch-action: none;
+  user-select: none;
+}
+
+/* CROSSWORD GAME */
+
+#crosswordPage {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255,255,255,.55) 0 3px, transparent 4px),
+    radial-gradient(circle at 85% 35%, rgba(255,255,255,.4) 0 5px, transparent 6px),
+    linear-gradient(145deg, #d8efeb, #a9d9d5, #80b9c0);
+  min-height: 100vh;
+  padding: 35px 18px;
+}
+
+/* =================================
+   A LITTLE WORLD QUIZ
+================================= */
+
+#crosswordPage {
+  padding: 35px 16px;
+  background: transparent;
+}
+
+#crosswordPage .crossword-container {
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 25px 18px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 10px 30px rgba(53, 89, 97, 0.12);
+  text-align: center;
+  color: #4c6567;
+}
+
+#crosswordPage .crossword-container h2 {
+  font-family: Georgia, serif;
+  font-size: 30px;
+  color: #355961;
+  margin: 12px 0;
+}
+
+#crosswordPage .crossword-intro {
+  max-width: 550px;
+  margin: 0 auto 20px;
+  line-height: 1.7;
+  color: #507e87;
+}
+
+#crosswordPage .crossword-orientation,
+#crosswordPage .crossword-instructions {
+  max-width: 500px;
+  margin: 14px auto;
+  padding: 12px 15px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid #b8ded8;
+  border-radius: 14px;
+  color: #507e87;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* AREA PAPAN */
+#crosswordPage .crossword-board-scroll {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin: 20px auto;
+  padding: 12px 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+#crosswordPage .crossword-board {
+  display: grid;
+  grid-template-columns: repeat(17, 30px);
+  grid-auto-rows: 30px;
+  gap: 2px;
+  width: max-content;
+  margin: 0 auto;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* KOTAK KOSONG: TRANSPARAN */
+#crosswordPage .crossword-empty {
+  width: 30px;
+  height: 30px;
+  background: transparent;
+}
+
+/* KOTAK JAWABAN SAJA */
+#crosswordPage .crossword-cell {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background: #fffefa;
+  border: 1px solid #91c5bf;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+#crosswordPage .crossword-cell input {
+  width: 100%;
+  height: 100%;
+  padding: 5px 0 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  background: transparent;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 700;
+  color: #355961;
+  caret-color: #507e87;
+}
+
+#crosswordPage .cell-number {
+  position: absolute;
+  top: 2px;
+  left: 3px;
+  z-index: 2;
+  font-size: 8px;
+  line-height: 1;
+  color: #507e87;
+  pointer-events: none;
+}
+
+#crosswordPage .crossword-cell.selected-cell {
+  background: #d8efeb;
+  border: 2px solid #5d9f9b;
+}
+
+#crosswordPage .crossword-cell.active-cell {
+  background: #f9e8b9;
+  border: 2px solid #c59d4d;
+}
+
+#crosswordPage .crossword-cell:focus-within {
+  outline: 2px solid #5d9f9b;
+  outline-offset: 1px;
+}
+
+/* PETUNJUK */
+#crosswordPage .crossword-clues {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  max-width: 700px;
+  margin: 25px auto;
+  text-align: left;
+}
+
+#crosswordPage .crossword-clue-column {
+  min-width: 0;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid #b8ded8;
+  border-radius: 18px;
+}
+
+#crosswordPage .crossword-clue-column h3 {
+  color: #507e87;
+  margin: 0 0 12px;
+}
+
+#crosswordPage .crossword-clue {
+  display: block;
+  width: 100%;
+  margin: 7px 0;
+  padding: 10px 12px;
+  border: 1px solid #d3e5df;
+  border-radius: 10px;
+  background: #fffefa;
+  color: #45666b;
+  text-align: left;
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 1.6;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+#crosswordPage .crossword-clue:hover,
+#crosswordPage .crossword-clue.active-clue {
+  background: #d8efeb;
+  border-color: #78aaa9;
+  color: #355961;
+}
+
+/* STATUS DAN TOMBOL */
+#crosswordPage .crossword-status {
+  margin: 20px 0;
+  padding: 13px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid #b8ded8;
+  color: #45666b;
+  font-size: 14px;
+}
+
+#crosswordPage #crosswordSuccess {
+  max-width: 480px;
+  margin: 25px auto;
+  padding: 25px 20px;
+  border-radius: 20px;
+  background: #e8f1e5;
+  color: #355961;
+}
+
+#crosswordPage #crosswordSuccess h3 {
+  margin-bottom: 12px;
+}
+
+#crosswordPage #crosswordSuccess p {
+  line-height: 1.7;
+}
+
+/* TAMPILAN HP */
+@media (max-width: 600px) {
+  #crosswordPage {
+    padding: 25px 12px;
+  }
+
+  #crosswordPage .crossword-container {
+    padding: 22px 12px;
+  }
+
+  #crosswordPage .crossword-container h2 {
+    font-size: 24px;
+  }
+
+  #crosswordPage .crossword-clues {
+    grid-template-columns: 1fr;
+  }
+}
+
+.garden-guide {
+  max-width: 500px;
+  margin: 15px auto;
+  padding: 15px 20px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.75);
+  color: #507e87;
+  text-align: center;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.garden-guide p {
+  margin: 6px 0 0;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+/* PESAN YANG MUNCUL SAAT BUNGA MEKAR */
+
+.garden-pot {
+  position: relative;
+}
+
+.flower-quote-pop {
+  position: absolute;
+  z-index: 20;
+  left: 50%;
+  bottom: calc(100% + 12px);
+  transform: translateX(-50%);
+  width: 230px;
+  max-width: 85vw;
+  padding: 13px 15px;
+  border-radius: 16px;
+  background: #fffdf5;
+  border: 1px solid #c9dfce;
+  box-shadow: 0 5px 18px rgba(70, 110, 85, 0.16);
+  color: #52735b;
+  font-size: 12px;
+  line-height: 1.6;
+  text-align: center;
+  opacity: 0;
+  animation: flowerQuoteAppear 0.8s ease forwards;
+}
+
+.flower-quote-pop::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 9px solid transparent;
+  border-top-color: #fffdf5;
+}
+
+@keyframes flowerQuoteAppear {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 15px) scale(0.85);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+/* ANIMASI HUJAN ALAT MUSIK */
+
+.music-rain {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.music-rain span {
+  position: absolute;
+  top: -60px;
+  font-size: 25px;
+  opacity: 0;
+  animation: fallingMusic 8s linear infinite;
+}
+
+.music-rain span:nth-child(1) { left: 3%; animation-delay: 0s; }
+.music-rain span:nth-child(2) { left: 11%; animation-delay: 2s; }
+.music-rain span:nth-child(3) { left: 19%; animation-delay: 4s; }
+.music-rain span:nth-child(4) { left: 27%; animation-delay: 1s; }
+.music-rain span:nth-child(5) { left: 35%; animation-delay: 3s; }
+.music-rain span:nth-child(6) { left: 43%; animation-delay: 5s; }
+.music-rain span:nth-child(7) { left: 51%; animation-delay: .5s; }
+.music-rain span:nth-child(8) { left: 59%; animation-delay: 2.5s; }
+.music-rain span:nth-child(9) { left: 67%; animation-delay: 4.5s; }
+.music-rain span:nth-child(10) { left: 75%; animation-delay: 1.5s; }
+.music-rain span:nth-child(11) { left: 83%; animation-delay: 3.5s; }
+.music-rain span:nth-child(12) { left: 91%; animation-delay: 5.5s; }
+.music-rain span:nth-child(13) { left: 7%; animation-delay: 6s; }
+.music-rain span:nth-child(14) { left: 23%; animation-delay: 7s; }
+.music-rain span:nth-child(15) { left: 39%; animation-delay: 6.5s; }
+.music-rain span:nth-child(16) { left: 55%; animation-delay: 7.5s; }
+.music-rain span:nth-child(17) { left: 71%; animation-delay: 6.8s; }
+.music-rain span:nth-child(18) { left: 87%; animation-delay: 7.2s; }
+.music-rain span:nth-child(19) { left: 15%; animation-delay: 1s; }
+.music-rain span:nth-child(20) { left: 31%; animation-delay: 2.8s; }
+.music-rain span:nth-child(21) { left: 47%; animation-delay: 4.8s; }
+.music-rain span:nth-child(22) { left: 63%; animation-delay: 3.8s; }
+.music-rain span:nth-child(23) { left: 79%; animation-delay: 5.8s; }
+.music-rain span:nth-child(24) { left: 95%; animation-delay: 2.2s; }
+
+@keyframes fallingMusic {
+  0% {
+    transform: translateY(-30px) rotate(0deg);
+    opacity: 0;
+  }
+  10% { opacity: .85; }
+  85% { opacity: .85; }
+  100% {
+    transform: translateY(105vh) rotate(240deg);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .music-rain span {
+    animation: none;
+    display: none;
+  }
+}
+
+/* SISTEM BINTANG */
+
+.universe-star {
+  position: relative;
+  z-index: 2;
+}
+
+.universe-star small {
+  display: block;
+  font-size: 10px;
+  margin-top: 3px;
+  color: white;
+}
+
+.universe-star.lit {
+  color: #ffe9a6;
+  text-shadow:
+    0 0 8px #fff1b8,
+    0 0 20px #ffd76b,
+    0 0 35px #ffc94d;
+  transform: scale(1.25);
+}
+
+#starAnswer {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 15px 0;
+  padding: 13px;
+  border: 1px solid #c9d9df;
+  border-radius: 12px;
+  background: #fffefa;
+  font: inherit;
+  resize: vertical;
+}
+
+#gardenNextButton:disabled {
+  opacity: .4;
+  cursor: not-allowed;
+}
+
+.star-answer-option {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 13px 16px;
+  border: 1px solid #c9d9df;
+  border-radius: 12px;
+  background: #fffefa;
+  color: #355961;
+  text-align: left;
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+.star-answer-option:hover {
+  background: #e7f0ee;
+  transform: translateY(-2px);
+}
+
+#starFeedback {
+  color: #668b85;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* PESAN KEMENANGAN BINTANG */
+
+.star-victory-modal {
+  max-width: 520px;
+  background: #102b46;
+  color: #fff5d9;
+  border: 1px solid rgba(255, 226, 153, .5);
+  box-shadow: 0 0 35px rgba(255, 215, 120, .25);
+}
+
+.star-victory {
+  text-align: center;
+  line-height: 1.8;
+}
+
+.star-victory h2 {
+  color: #ffe6a6;
+  font-size: 23px;
+  margin: 15px 0;
+}
+
+.star-victory p {
+  font-size: 14px;
+  margin: 15px 0;
+}
+
+.star-victory h3 {
+  color: #ffe6a6;
+  margin-top: 22px;
+}
+
+.big-shining-star {
+  font-size: 65px;
+  color: #ffe7a0;
+  text-shadow: 0 0 12px #ffe7a0, 0 0 35px #ffd15c;
+  animation: starGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes starGlow {
+  from { transform: scale(1); opacity: .75; }
+  to { transform: scale(1.2); opacity: 1; }
+}
+
+/* HUJAN BINTANG KEMENANGAN */
+
+.star-shower {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.star-shower span {
+  position: absolute;
+  top: -50px;
+  color: #ffe9a8;
+  font-size: 25px;
+  text-shadow: 0 0 12px #ffe9a8, 0 0 25px #ffd15c;
+  animation: starRain 5s linear infinite;
+}
+
+.star-shower span:nth-child(1) { left: 4%; animation-delay: 0s; }
+.star-shower span:nth-child(2) { left: 9%; animation-delay: 1.2s; }
+.star-shower span:nth-child(3) { left: 14%; animation-delay: 2.4s; }
+.star-shower span:nth-child(4) { left: 19%; animation-delay: .5s; }
+.star-shower span:nth-child(5) { left: 24%; animation-delay: 1.8s; }
+.star-shower span:nth-child(6) { left: 29%; animation-delay: 3s; }
+.star-shower span:nth-child(7) { left: 34%; animation-delay: .8s; }
+.star-shower span:nth-child(8) { left: 39%; animation-delay: 2s; }
+.star-shower span:nth-child(9) { left: 44%; animation-delay: 3.2s; }
+.star-shower span:nth-child(10) { left: 49%; animation-delay: 1s; }
+.star-shower span:nth-child(11) { left: 54%; animation-delay: 2.2s; }
+.star-shower span:nth-child(12) { left: 59%; animation-delay: .3s; }
+.star-shower span:nth-child(13) { left: 64%; animation-delay: 1.5s; }
+.star-shower span:nth-child(14) { left: 69%; animation-delay: 2.7s; }
+.star-shower span:nth-child(15) { left: 74%; animation-delay: .7s; }
+.star-shower span:nth-child(16) { left: 79%; animation-delay: 1.9s; }
+.star-shower span:nth-child(17) { left: 84%; animation-delay: 3.1s; }
+.star-shower span:nth-child(18) { left: 89%; animation-delay: 1.1s; }
+.star-shower span:nth-child(19) { left: 94%; animation-delay: 2.3s; }
+.star-shower span:nth-child(20) { left: 98%; animation-delay: .4s; }
+
+@keyframes starRain {
+  0% {
+    transform: translateY(-40px) rotate(0deg);
+    opacity: 0;
+  }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% {
+    transform: translateY(110vh) rotate(260deg);
+    opacity: 0;
+  }
+}
+
+.star-shower span {
+  position: absolute;
+  top: -50px;
+  color: #ffe9a8;
+  text-shadow: 0 0 12px #ffe9a8, 0 0 25px #ffd15c;
+  animation: starRain 6s linear infinite;
+  will-change: transform, opacity;
+}
+
+
+/* ===== ANIMASI HALAMAN QUOTES ===== */
+
+#quotesSecondPage {
+  position: relative;
+  overflow: hidden;
+}
+
+#quotesSecondPage .quotes-collection {
+  position: relative;
+  z-index: 1;
+}
+
+/* Lapisan animasi */
+#quotesSecondPage .floating-decoration {
+  position: absolute;
+  pointer-events: none;
+  z-index: 5;
+  user-select: none;
+}
+
+/* Kucing */
+#quotesSecondPage .cute-cat {
+  bottom: 12px;
+  left: -90px;
+  font-size: 35px;
+  animation: catWalk 18s linear infinite;
+}
+
+#quotesSecondPage .cute-cat.cat-two {
+  bottom: 45px;
+  font-size: 30px;
+  animation: catWalk 22s linear infinite 4s;
+}
+
+#quotesSecondPage .cute-cat.cat-three {
+  bottom: 18px;
+  font-size: 27px;
+  animation: catWalk 20s linear infinite 8s;
+}
+
+#quotesSecondPage .cute-cat.cat-four {
+  bottom: 55px;
+  font-size: 32px;
+  animation: catWalk 24s linear infinite 12s;
+}
+
+/* Burung */
+#quotesSecondPage .white-bird {
+  top: 80px;
+  left: -60px;
+  font-size: 25px;
+  animation: birdFly 18s linear infinite;
+}
+
+/* Bunga jatuh */
+#quotesSecondPage .falling-flower {
+  top: -30px;
+  font-size: 19px;
+  animation: flowerFall 12s linear infinite;
+}
+
+#quotesSecondPage .falling-flower.flower-two {
+  left: 75%;
+  animation-delay: 4s;
+}
+
+#quotesSecondPage .falling-flower.flower-three {
+  left: 35%;
+  animation-delay: 7s;
+}
+
+/* Bintang */
+#quotesSecondPage .twinkle-star {
+  font-size: 16px;
+  animation: twinkle 2s ease-in-out infinite alternate;
+}
+
+@keyframes catWalk {
+  from {
+    left: -90px;
+  }
+  to {
+    left: calc(100% + 90px);
+  }
+}
+
+@keyframes birdFly {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(55vw, -35px); }
+  100% { transform: translate(calc(100vw + 100px), 10px); }
+}
+
+@keyframes flowerFall {
+  0% { transform: translateY(0) rotate(0); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(100vh) rotate(300deg); opacity: 0; }
+}
+
+@keyframes twinkle {
+  from { opacity: .25; transform: scale(.8); }
+  to { opacity: 1; transform: scale(1.2); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #quotesSecondPage .floating-decoration {
+    animation: none;
+  }
+}

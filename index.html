@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Mbak Lis ♡</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<audio id="backgroundMusic" loop>
+  <source src="audio/musik-pembuka.mp3.mp3" type="audio/mpeg">
+</audio>
+<audio id="reminderMusic" loop>
+  <source src="audio/a little reminder.mp3" type="audio/mpeg">
+</audio>
+  <div class="ocean-decoration"><tool_call>　✧　🐚　♡　𓆝</div>
+
+<!-- HALAMAN PEMBUKA: UNDERWATER FISHING -->
+<section id="fishingPage" class="page">
+
+  <div class="ocean-background">
+
+    <!-- CAHAYA LAUT -->
+    <div class="ocean-light"></div>
+
+    <!-- GELEMBUNG -->
+    <div class="ocean-bubbles">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- PEMBUKA -->
+    <div class="fishing-intro" id="fishingIntro">
+      <p class="ocean-eyebrow">A LITTLE SURPRISE FOR YOU</p>
+
+      <h1>Something is waiting<br>beneath the sea ♡</h1>
+
+      <p>
+        Sebelum membuka scrapbookini,
+        sepertinya ada sesuatu yang perlu kamu temukan
+        di dasar laut...
+      </p>
+
+      <div class="fishing-instruction">
+        Geser kailnya, arahkan ke ikan atau kerang yang ada dalam gelembung,
+        lalu coba tarik!
+      </div>
+    </div>
+
+    <!-- AREA PERMAINAN -->
+    <div class="fishing-game" id="fishingGame">
+
+      <div class="sea-floor"></div>
+
+
+<!-- 30 IKAN KECIL BERWARNA -->
+<div class="glow-fish pink-fish fish-1"></div>
+<div class="glow-fish cyan-fish fish-2"></div>
+<div class="glow-fish purple-fish fish-3"></div>
+<div class="glow-fish yellow-fish fish-4"></div>
+<div class="glow-fish green-fish fish-5"></div>
+<div class="glow-fish blue-fish fish-6"></div>
+<div class="glow-fish orange-fish fish-7"></div>
+<div class="glow-fish pink-fish fish-8"></div>
+<div class="glow-fish cyan-fish fish-9"></div>
+<div class="glow-fish yellow-fish fish-10"></div>
+<div class="glow-fish purple-fish fish-11"></div>
+<div class="glow-fish green-fish fish-12"></div>
+<div class="glow-fish orange-fish fish-13"></div>
+<div class="glow-fish blue-fish fish-14"></div>
+<div class="glow-fish pink-fish fish-15"></div>
+<div class="glow-fish yellow-fish fish-16"></div>
+<div class="glow-fish cyan-fish fish-17"></div>
+<div class="glow-fish green-fish fish-18"></div>
+<div class="glow-fish purple-fish fish-19"></div>
+<div class="glow-fish orange-fish fish-20"></div>
+<div class="glow-fish blue-fish fish-21"></div>
+<div class="glow-fish pink-fish fish-22"></div>
+<div class="glow-fish green-fish fish-23"></div>
+<div class="glow-fish cyan-fish fish-24"></div>
+<div class="glow-fish yellow-fish fish-25"></div>
+<div class="glow-fish purple-fish fish-26"></div>
+<div class="glow-fish blue-fish fish-27"></div>
+<div class="glow-fish orange-fish fish-28"></div>
+<div class="glow-fish pink-fish fish-29"></div>
+<div class="glow-fish cyan-fish fish-30"></div>
+
+      <!-- TANAMAN LAUT -->
+      <div class="sea-plant plant-one">𓆝</div>
+      <div class="sea-plant plant-two">𓇼</div>
+      <div class="sea-plant plant-three">𓆞</div>
+
+      <!-- TARGET -->
+      <div class="sea-target fish-target" data-target="fish">
+        🐠
+      </div>
+
+      <div class="sea-target shell-target" data-target="shell">
+        🐚
+      </div>
+
+      <div class="sea-target star-target" data-target="star">
+        ⭐
+      </div>
+
+      <!-- PANCING -->
+      <div class="fishing-line" id="fishingLine">
+        <div class="fishing-hook">⌁</div>
+      </div>
+
+    </div>
+
+    <!-- TOMBOL TARIK -->
+    <button id="pullButton" class="pull-button" type="button">
+      TARIK! ♡
+    </button>
+
+    <!-- KEJUTAN -->
+    <div id="fishingSurprise" class="fishing-surprise">
+      <p class="ocean-eyebrow">YOU FOUND A LITTLE TREASURE</p>
+      <h2>Look what you found! ♡</h2>
+      <p>katanya ada lagu yang mbak lis suka, coba klik tombol di bawah ini ya.</p>
+      <div class="treasure-display">🐚 ✧ 🪸 ⭐ ♡ 🫧</div>
+
+      <button class="open-scrapbook-button"
+              type="button"
+              onclick="openScrapbookFromFishing()">
+        OPEN SCRAPBOOK ♡
+      </button>
+    </div>
+
+  </div>
+</section>
+
+  <!-- HALAMAN 1: COVER -->
+  <section id="coverPage" class="page cover-page hidden">
+    <div class="cover-shell">🐚</div>
+    <div class="cover-card">
+      <p class="eyebrow">a scrapbook made with proud</p>
+      <div class="cover-ribbon">♡</div>
+      <h1>congrats and<br>proud of you</h1>
+      <p class="subtitle">mbak lis</p>
+      <div class="wave-line">〰 〰 〰</div>
+      <p class="cover-note">Padahal untuk sampai di hari ini bukan perjalanan yang mudah, maka dari itu kamu harus bangga dengan dirimu sendiri. ♡</p>
+      <button class="main-button" onclick="showPage('introPage')">
+        Open your scrapbook <span>♡</span>
+      </button>
+    </div>
+    <p class="bottom-note">keep going, keep growing, and be proud of yourself</p>
+  </section>
+
+  <!-- HALAMAN 2: PEMBUKA -->
+  <section id="introPage" class="page hidden">
+    <div class="letter-paper intro-paper">
+      <p class="eyebrow">a little note before we begin</p>
+
+      <div class="little-flower">✿</div>
+
+      <h2>Before You Begin ♡</h2>
+
+      <p class="letter-text">
+        haii, mbak lis! akhirnya sampai juga di sini 😭
+      </p>
+
+      <p class="letter-text">
+        aku bikin scrapbook ini buat menyimpan sedikit
+        kenangan, cerita, dan hal-hal yang mungkin
+        pernah kita lewati bareng di pondok.
+      </p>
+
+      <p class="letter-text">
+        dari sibuk ngurusin adek-adek, jadi andalan
+        kalau ada kegiatan dan acara, sampai capek bareng yang
+        dulu rasanya pengin cepat selesai.
+        eh, sekarang malah jadi kenangan. ♡
+      </p>
+
+      <p class="letter-text">
+        udah, daripada makin mellow, yuk buka
+        halaman berikutnya! 🌷
+      </p>
+
+      <p class="letter-signature">a scrapbook, a lot of memories ♡</p>
+
+      <button class="main-button" onclick="openAlbum('memories')">
+        let's begin <span>♡</span>
+      </button>
+    </div>
+
+    <div class="page-navigation">
+      <button class="soft-button" onclick="showPage('coverPage')">
+        ← Back to cover
+      </button>
+    </div>
+  </section>
+
+  <!-- HALAMAN 3: OUR MEMORIES -->
+  <section id="memoriesPage" class="page hidden">
+    <header class="page-header">
+      <p class="eyebrow">pressed flowers & salty air</p>
+      <h2 id="albumHeading">Our Memories</h2>
+      <p id="albumDescription">Every little moment has a place here ♡</p>
+    </header>
+
+    <div id="photoGrid" class="photo-grid"></div>
+
+    <div class="page-navigation">
+      <button class="soft-button" onclick="showPage('introPage')">← Back</button>
+      <button class="soft-button" onclick="openForYou()">Next page →</button>
+    </div>
+  </section>
+
+  <!-- HALAMAN FOR YOU -->
+  <section id="forYouPage" class="page hidden">
+    <div class="letter-paper">
+      <p class="eyebrow">a letter from the heart</p>
+      <h2>For You, Mbak Lis</h2>
+      <div class="little-flower">✿</div>
+      <p class="letter-text">
+        Untuk kamu yang sudah berjalan sejauh ini,
+        terima kasih karena sudah berusaha, bahkan pada
+        hari-hari ketika semuanya terasa tidak mudah.
+      </p>
+      <p class="letter-text">
+        Semoga setelah semua hal yang kamu lewati,
+        hidup memberimu lebih banyak alasan untuk tersenyum,
+        lebih banyak tempat untuk pulang, dan lebih banyak
+        hari yang terasa ringan.
+      </p>
+      <p class="letter-text">
+        Kamu tidak harus selalu kuat setiap waktu.
+        Pelan-pelan juga tidak apa-apa. Semoga kamu selalu
+        menemukan hal-hal kecil yang membuatmu ingin
+        terus melangkah. ♡
+      </p>
+      <p class="letter-signature">with proud, always ♡</p>
+    </div>
+        <div class="photo-grid" id="forYouPhotoGrid"></div>
+    <div class="page-navigation">
+      <button class="soft-button" onclick="showPage('memoriesPage')">← Back</button>
+      <button class="soft-button" onclick="showPage('playlistPage')">Next page →</button>
+    </div>
+  </section>
+
+  <!-- HALAMAN PLAYLIST -->
+<section id="playlistPage" class="page hidden">
+ <div class="music-rain" id="musicRain" aria-hidden="true">
+  <span>🎸</span><span>🎻</span><span>🎹</span>
+  <span>🎺</span><span>🎼</span><span>🎷</span>
+  <span>🎸</span><span>🎶</span><span>🎵</span>
+  <span>🎹</span><span>🎻</span><span>🎺</span>
+  <span>🎼</span><span>🎷</span><span>🎸</span>
+  <span>🎵</span><span>🎶</span><span>🎹</span>
+  <span>🎻</span><span>🎺</span><span>🎸</span>
+  <span>🎼</span><span>🎵</span><span>🎷</span>
+</div>
+  <header class="page-header">
+    <p class="eyebrow">little songs, little feelings</p>
+    <h2>Our Little Playlist</h2>
+    <p>some songs that I want you to hear ♡</p>
+  </header>
+
+  
+<div class="playlist-paper cassette-room">
+
+  <p class="playlist-intro">
+  beberapa lagu kecil yang semoga bisa menemani hari-hari Mbak Lis ♡
+</p>
+
+  <div class="cassette-display">
+
+    <p class="cassette-label" id="cassetteNowPlaying">NOW PLAYING</p>
+    <div class="main-cassette">
+      <div class="cassette-top">
+        <span>OUR LITTLE PLAYLIST</span>
+        <span>♡ SIDE A</span>
+      </div>
+
+      <div class="cassette-window">
+        <div class="cassette-reel">
+          <div class="reel-center"></div>
+        </div>
+        <div class="cassette-tape"></div>
+        <div class="cassette-reel">
+          <div class="reel-center"></div>
+        </div>
+      </div>
+
+      <div class="cassette-bottom">
+        <span>made with little memories</span>
+        <span>NO. 001</span>
+      </div>
+    </div>
+
+    <p class="cassette-hint">
+      pilih kaset dan nikmati musiknya ♡
+    </p>
+
+  </div>
+
+  <div class="cassette-collection">
+
+    <p class="collection-title">♡ KOLEKSI KASET</p>
+
+
+<a class="cassette-song"
+   onclick="playCassette('Menari-nari')"
+   href="https://youtu.be/uGxaFiHD7PI?si=m8KkPNCbJfG_Gza2"
+   target="_blank" rel="noopener noreferrer">
+  <span class="mini-cassette">♫</span>
+  <span class="cassette-song-info">
+    <strong>Menari-nari</strong>
+    <small>semoga selalu ada alasan untuk tersenyum, bahkan di hari yang melelahkan</small>
+  </span>
+  <span class="cassette-play">▶</span>
+</a>
+
+<a class="cassette-song"
+   onclick="playCassette('Panasea')"
+   href="https://youtu.be/-hxmeNCmAwg?si=9T6WfUlES3eBpGIR"
+   target="_blank" rel="noopener noreferrer">
+  <span class="mini-cassette">♫</span>
+  <span class="cassette-song-info">
+    <strong>Panasea</strong>
+    <small>coba dengarkan baik-baik, barangkali ada cerita yang ingin disampaikan lewat liriknya</small>
+  </span>
+  <span class="cassette-play">▶</span>
+</a>
+
+<a class="cassette-song"
+   onclick="playCassette('Bernaung')"
+   href="https://youtu.be/3XTpYg13PLM?si=1YFtZnyciTivgJGf"
+   target="_blank" rel="noopener noreferrer">
+  <span class="mini-cassette">♫</span>
+  <span class="cassette-song-info">
+    <strong>Bernaung</strong>
+    <small>semoga selalu ada tempat untuk pulang saat dunia terasa terlalu riuh</small>
+  </span>
+  <span class="cassette-play">▶</span>
+</a>
+
+<a class="cassette-song"
+   href="https://youtu.be/t4cVF6OTS-w?si=s3bnneJaTIDt0vSG"
+   target="_blank"
+   rel="noopener noreferrer"
+   onclick="playCassette('Sampai Jadi Debu')">
+  <span class="mini-cassette">♫</span>
+  <span class="cassette-song-info">
+    <strong>Sampai Jadi Debu</strong>
+    <small>tentang waktu, kenangan, dan hal-hal yang ingin tetap kita kenang</small>
+  </span>
+  <span class="cassette-play">▶</span>
+</a>
+
+</div>
+
+<p class="playlist-note">
+  mungkin nanti akan ada lebih banyak lagu, sebab selalu ada cerita yang ingin dibagikan ♡
+</p>
+
+  <div class="playlist-decoration">
+    𓇼　✧　🐚　♡　𓆝
+  </div>
+
+</div>
+
+
+  <div class="page-navigation">
+    <button class="soft-button"
+            onclick="showPage('forYouPage')">
+      ← Back
+    </button>
+
+    <button class="soft-button"
+            onclick="openLittleThings()">
+      Next page →
+    </button>
+  </div>
+</section>
+
+  <!-- HALAMAN LITTLE THINGS -->
+  <section id="littleThingsPage" class="page hidden">
+    <div class="letter-paper little-things-paper">
+      <p class="eyebrow">tiny things, precious memories</p>
+      <h2>Little Things ♡</h2>
+      <div class="letter-text">
+        <p><tool_call> kamu bisa kehilangan apapun dalam hidup ♡ tetapi kamu tidak boleh kehilangan kemampuan untuk berdiri diatas kakimu sendiri ✧ bertahanlah bukan hanya karena ada orang yang berharap padamu 🐚 tetapi juga karena kamu masih punya masa depan yang layak diperjuangkan ☁ </p>
+      </div>
+      <p class="letter-signature">never forget us, mbak lis... ♡</p>
+    </div>
+    <div class="photo-grid"
+    id="littleThingsPhotoGrid"></div>
+    <div class="page-navigation">
+      <button class="soft-button" onclick="showPage('playlistPage')">← Back</button>
+      <button class="soft-button" onclick="playReminderMusic()">A little reminder →</button>
+    </div>
+  </section>
+
+  <!-- HALAMAN 7: A LITTLE MESSAGE -->
+<section id="messagePage" class="page hidden">
+
+  <div class="letter-paper message-paper">
+
+    <p class="eyebrow">words I want you to remember</p>
+
+    <div class="little-flower">✿</div>
+
+    <h2>A Little Message for You ♡</h2>
+
+    <p class="letter-text">
+      Ada banyak hal yang mungkin belum sempat
+      disampaikan, banyak cerita yang masih tersimpan,
+      dan banyak doa baik yang diam-diam menyertai.
+    </p>
+
+    <p class="letter-text">
+      Semoga kamu selalu punya alasan untuk tersenyum,
+      keberanian untuk memulai lagi, dan hati yang
+      cukup lapang untuk menikmati setiap proses.
+    </p>
+
+
+<!-- GAME LITTLE MEMORY MATCH -->
+<div class="memory-game-section">
+  <p class="eyebrow">a little game for you ♡</p>
+  <h2>Little Memory Match</h2>
+
+  <p class="memory-game-description">
+   Mbak Lis, sebelum lanjut ke halaman berikutnya, ada tantangan kecil nih! Wkwk.
+
+Coba temukan semua pasangan kartu yang cocok. Siapa tahu ada kejutan kecil dan pesan dariku di balik kartu-kartunya.
+
+Yuk, coba dulu! Jangan sampai kalah, yaa. WKWK ♡
+    Have fun, Mbak Lis! ♡
+  </p>
+
+  <div class="genially-container">
+    <iframe
+      src="https://view.genially.com/6ae2215ae28a25719e4b2409"
+      title="Little Memory Match"
+      allowfullscreen
+      loading="lazy">
+    </iframe>
+  </div>
+</div>
+
+    <p class="letter-signature">
+      keep being you, Mbak Lis ♡
+    </p>
+
+  </div>
+
+  <div class="page-navigation">
+    <button class="soft-button"
+            onclick="showPage('littleThingsPage')">
+      ← Back
+    </button>
+
+    <button class="soft-button"
+            onclick="showPage('quotesPage')">
+      Next page →
+    </button>
+  </div>
+
+</section>
+
+  <!-- HALAMAN QUOTES -->
+  <section id="quotesPage" class="page hidden">
+    <div class="quote-paper">
+      <div class="quote-shell">𓇼　🐚　✧</div>
+      <p class="eyebrow">a gentle reminder for you</p>
+
+      <blockquote class="big-quote">
+        “sudah mau berjuang untuk takdirmu saja,
+        itu sudah lebih dari cukup”
+      </blockquote>
+
+      <div class="divider-wave">〰 〰 ♡ 〰 〰</div>
+
+      <p class="small-quote">
+        kabar baiknya, ditahun ini kamu sudah memilih
+        untuk bertahan, memilih untuk tidak menyerah
+        pada keadaan, dan kuucapkan selamat atas
+        perjuangan gilamu.
+      </p>
+
+      <p class="quote-ending">rest a little, you've done enough ♡</p>
+      <div class="quote-flower">✿</div>
+    </div>
+
+    <div class="page-navigation">
+      <button class="soft-button" onclick="showPage('messagePage')">← Back</button>
+      <button class="soft-button" onclick="showPage('quotesSecondPage')">Next page</button>
+    </div>
+  </section>
+
+  
+<!-- HALAMAN 10: BEBERAPA PESAN KECIL -->
+
+<section id="quotesSecondPage" class="page hidden">
+
+  <div class="quotes-collection">
+
+    <!-- FOTO -->
+    <div class="quotes-hero-image">
+      <img src="images/quotes-cover.jpg"
+           alt="Kenangan kecil Mbak Lis">
+    </div>
+
+    <!-- JUDUL -->
+    <div class="quotes-heading">
+      <p class="eyebrow">SEDIKIT PESAN UNTUKMU</p>
+
+      <h2>Beberapa Hal<br>yang Ingin Kusampaikan ♡</h2>
+
+      <p class="quotes-subtitle">
+        Ada beberapa hal yang ingin aku sampaikan.
+        Barangkali bisa kamu ingat lagi saat hari-hari terasa berat.
+      </p>
+
+      <span class="quotes-decoration">𓇼　✧　♡　✧　𓇼</span>
+    </div>
+
+    <!-- KATA-KATA -->
+    <div class="quotes-grid">
+
+      <div class="quote-card">
+        <span class="quote-number">01 / TENTANG SENYUMMU</span>
+        <p>
+          Lihat, senyummu masih saja seindah itu.
+          Mungkin nggak semua orang tahu apa saja yang sudah kamu lewati untuk sampai di titik ini. Tapi aku harap kamu tahu, kamu sudah berjalan sejauh ini dan itu bukan hal yang sederhana.
+        </p>
+      </div>
+
+      <div class="quote-card">
+        <span class="quote-number">02 / JANGAN LUPA DIRIMU</span>
+        <p>
+          Aku tahu, ada hari-hari ketika kamu harus menguatkan dirimu sendiri.
+          Ada banyak hal yang mungkin nggak sempat kamu ceritakan kepada siapa pun. Jadi, kalau suatu saat kamu merasa lelah, nggak apa-apa untuk beristirahat. Kamu nggak harus selalu terlihat kuat.
+        </p>
+      </div>
+
+      <div class="quote-card">
+        <span class="quote-number">03 / NIKMATI PROSESMU</span>
+        <p>
+          Aku harap kamu nggak terlalu keras sama dirimu sendiri.
+          Nggak semua hal harus selesai hari ini, dan nggak semua harapan harus terwujud sekarang. Pelan-pelan saja, ya. Aku percaya setiap langkah kecilmu tetap berarti.
+        </p>
+      </div>
+
+      <div class="quote-card">
+        <span class="quote-number">04 / DOA KECIL UNTUKMU</span>
+        <p>
+          Semoga setelah perjalanan panjang yang sudah kamu lewati, akan ada lebih banyak hal baik yang datang menghampirimu.
+          Semoga hidup lebih sering memberimu alasan untuk tersenyum. Kamu pantas bahagia, Mbak Lis, tanpa harus selalu melewati hal-hal sulit terlebih dahulu.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- NAVIGASI -->
+    <div class="page-navigation">
+      <button class="soft-button"
+              onclick="showPage('quotesPage')">
+        ← Kembali
+      </button>
+
+      <button class="soft-button"
+              onclick="showPage('bottlePage')">
+        Cari botol pesan →
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- HALAMAN: MESSAGE IN A BOTTLE -->
+
+<section id="bottlePage" class="page hidden">
+
+  <div class="bottle-world">
+
+    <div class="bottle-heading">
+      <p class="eyebrow">SECUIL PESAN DARI LAUT</p>
+
+      <h2>Pesan dalam Botol</h2>
+
+      <p>
+        Di suatu sudut lautan kecil ini,
+        ada lima pesan yang sedang menunggumu untuk ditemukan.
+      </p>
+
+      <span>𓇼　✧　🐚　✧　𓇼</span>
+    </div>
+
+    <div class="bottle-grid">
+
+      <button class="message-bottle" onclick="openBottle(0)">
+        <span class="bottle-number">01</span>
+        <span class="bottle-icon">
+  <span class="bottle-cork"></span>
+  <span class="bottle-neck"></span>
+  <span class="bottle-paper"></span>
+  <span class="bottle-shine"></span>
+</span>
+        <span class="bottle-label">A Little Reminder</span>
+      </button>
+
+      <button class="message-bottle" onclick="openBottle(1)">
+        <span class="bottle-number">02</span>
+        <span class="bottle-icon">
+  <span class="bottle-cork"></span>
+  <span class="bottle-neck"></span>
+  <span class="bottle-paper"></span>
+  <span class="bottle-shine"></span>
+</span>
+        <span class="bottle-label">You Are Appreciated</span>
+      </button>
+
+      <button class="message-bottle" onclick="openBottle(2)">
+        <span class="bottle-number">03</span>
+        <span class="bottle-icon">
+  <span class="bottle-cork"></span>
+  <span class="bottle-neck"></span>
+  <span class="bottle-paper"></span>
+  <span class="bottle-shine"></span>
+</span>
+        <span class="bottle-label">Don't Forget</span>
+      </button>
+
+      <button class="message-bottle" onclick="openBottle(3)">
+        <span class="bottle-number">04</span>
+        <span class="bottle-icon">
+  <span class="bottle-cork"></span>
+  <span class="bottle-neck"></span>
+  <span class="bottle-paper"></span>
+  <span class="bottle-shine"></span>
+</span>
+        <span class="bottle-label">For Your Journey</span>
+      </button>
+
+      <button class="message-bottle" onclick="openBottle(4)">
+        <span class="bottle-number">05</span>
+        <span class="bottle-icon">
+  <span class="bottle-cork"></span>
+  <span class="bottle-neck"></span>
+  <span class="bottle-paper"></span>
+  <span class="bottle-shine"></span>
+</span>
+        <span class="bottle-label">One More Thing</span>
+      </button>
+
+    </div>
+
+    <p class="bottle-hint">
+      ✧ Tap each little bottle to discover its message ✧
+    </p>
+<div class="bottle-navigation">
+
+  <button class="soft-button"
+          onclick="showPage('quotesSecondPage')">
+    ← Back
+  </button>
+
+  <button class="soft-button"
+          onclick="showPage('universePage')">
+    Explore the stars →
+  </button>
+
+</div>
+
+  </div>
+
+</section>
+
+
+<!-- HALAMAN: A LITTLE UNIVERSE -->
+
+<section id="universePage" class="page hidden">
+
+  <div class="universe-world">
+
+    <div class="universe-heading">
+      <p class="eyebrow">SOMEWHERE BEYOND THE OCEAN</p>
+
+      <h2>A Little Universe</h2>
+
+      <p>
+        Even in the deepest blue,
+        there are little lights waiting to be discovered.
+      </p>
+
+      <span class="universe-decoration">✦　⋆　☾　⋆　✦</span>
+    </div>
+
+    
+<div class="universe-sky">
+
+  <button class="universe-star" onclick="discoverStar(0)" aria-label="Bintang 1">
+    <span>✦</span><small>1</small>
+  </button>
+
+  <button class="universe-star" onclick="discoverStar(1)" aria-label="Bintang 2">
+    <span>✧</span><small>2</small>
+  </button>
+
+  <button class="universe-star" onclick="discoverStar(2)" aria-label="Bintang 3">
+    <span>✦</span><small>3</small>
+  </button>
+
+  <button class="universe-star" onclick="discoverStar(3)" aria-label="Bintang 4">
+    <span>✧</span><small>4</small>
+  </button>
+
+  <button class="universe-star" onclick="discoverStar(4)" aria-label="Bintang 5">
+    <span>✦</span><small>5</small>
+  </button>
+
+  <button class="universe-star" onclick="discoverStar(5)" aria-label="Bintang 6">
+    <span>✧</span><small>6</small>
+  </button>
+
+  <button class="universe-star" onclick="discoverStar(6)" aria-label="Bintang 7">
+    <span>✦</span><small>7</small>
+  </button>
+
+  <svg class="constellation-lines"
+       viewBox="0 0 700 340"
+       preserveAspectRatio="none">
+
+    <path d="M84 61 L259 129 L455 44 L581 163"
+          class="constellation-path"/>
+
+    <path d="M259 129 L161 255 L371 272 L511 221 L581 163"
+          class="constellation-path"/>
+
+    <path d="M455 44 L511 221"
+          class="constellation-path"/>
+
+  </svg>
+
+</div>
+
+    <div class="universe-hint">
+  <p>✨ Ada 7 bintang yang menunggu untuk dinyalakan.</p>
+  <p>Mulai dari bintang nomor 1, lalu ikuti urutannya sampai nomor 7.</p>
+  <p>Jawab setiap pertanyaan untuk menyalakan bintangnya, ya!</p>
+  <p id="starProgress">0 dari 7 bintang sudah menyala</p>
+</div>
+
+    <div class="universe-navigation">
+
+      <button class="soft-button"
+              onclick="showPage('bottlePage')">
+        ← Back
+      </button>
+
+      <button class="soft-button"
+        id="gardenNextButton"
+        onclick="showPage('gardenPage')"
+        disabled>
+  Visit the garden →
+</button>
+
+    </div>
+
+  </div>
+
+</section>
+
+<div id="starShower" class="star-shower hidden" aria-hidden="true">
+</div>
+
+<div id="starModal" class="hidden">
+  <div class="star-modal-content">
+    <span>✦</span>
+
+    <p id="starMessage"></p>
+
+    <div id="starOptions"></div>
+
+    <p id="starFeedback"></p>
+
+    <button onclick="closeStarModal()">
+      Tutup
+    </button>
+  </div>
+</div>
+
+<!-- HALAMAN: A GARDEN FOR YOU -->
+
+<section id="gardenPage" class="page hidden">
+
+  <div class="garden-world">
+    <div class="garden-rotate-notice">
+  <div class="rotate-icon">📱</div>
+  <p>Mbak Lis, coba putar HP-nya ke samping dulu, yaa.</p>
+  <span>Biar taman kecilnya kelihatan lebih luas 🌷</span>
+  </div>
+
+    <div class="garden-heading">
+      <p class="eyebrow">A LITTLE GARDEN GAME</p>
+      <h2>Little Flower Care</h2>
+      <p>Grow your own little garden, one flower at a time.</p>
+    </div>
+
+    <div class="seed-selection">
+      <h3>Pilih benih bunga yang mau kamu tanam, terus klik Tanam benih yaa</h3>
+
+<button onclick="selectSeed('daisy')">
+  🌼 Daisy
+</button>
+
+<button onclick="selectSeed('tulip')">
+  🌷 Tulip
+</button>
+
+<button onclick="selectSeed('sunflower')">
+  🌻 Bunga Matahari
+</button>
+
+    <div class="garden-pots">
+    <div class="garden-pot" id="pot0">
+    <div class="plant-display" id="plant0">🪴</div>
+
+    <p>Pot 1</p>
+    <p class="pot-water">💧 Belum disiram</p>
+    <p class="pot-sun">☀️ Belum kena matahari</p>
+
+    <div class="plant-progress">
+    <div class="plant-progress-fill" id="progress0"></div>
+  </div>
+
+  <p class="plant-stage" id="stage0">Belum ada benih nih</p>
+
+  <button onclick="plantSeed(0)">Tanam benih di sini</button>
+  <button onclick="resetPot(0)">Ulangi</button>
+
+</div>
+
+      <div class="garden-pot" id="pot1">
+
+  <div class="plant-display" id="plant1">🪴</div>
+
+  <p>Pot 2</p>
+  <p class="pot-water">💧 Belum disiram</p>
+  <p class="pot-sun">☀️ Belum kena matahari</p>
+
+  <div class="plant-progress">
+    <div class="plant-progress-fill" id="progress1"></div>
+  </div>
+
+  <p class="plant-stage" id="stage1">Belum ada benih nih</p>
+
+  <button onclick="plantSeed(1)">Tanam benih di sini</button>
+  <button onclick="resetPot(1)">Ulangi</button>
+
+</div>
+
+      <div class="garden-pot" id="pot2">
+
+  <div class="plant-display" id="plant2">🪴</div>
+
+  <p>Pot 3</p>
+  <p class="pot-water">💧 Belum disiram</p>
+  <p class="pot-sun">☀️ Belum kena matahari</p>
+
+  <div class="plant-progress">
+    <div class="plant-progress-fill" id="progress2"></div>
+  </div>
+
+  <p class="plant-stage" id="stage2">Belum ada benih nih</p>
+
+  <button onclick="plantSeed(2)">Tanam benih di sini</button>
+  <button onclick="resetPot(2)">Ulangi</button>
+
+</div>
+    </div>
+
+<div class="garden-tools">
+  <div class="garden-tool" onpointerdown="startGardenDrag(event, 'water')">
+    💧
+    <span>Air</span>
+  </div>
+
+  <div class="garden-tool" onpointerdown="startGardenDrag(event, 'sun')">
+    ☀️
+    <span>Matahari</span>
+  </div>
+
+</div>
+
+</div>
+
+    <p id="gardenStatus">
+      Choose your seeds and start planting!
+    </p>
+    <div id="flowerQuote" class="flower-quote hidden">
+  <span>✿</span>
+  <p id="flowerQuoteText"></p>
+</div>
+
+<div class="garden-guide">
+  🌱 Yuk, rawat bunga-bunganya!
+
+  <p>
+    Geser ikon 💧 Air atau ☀️ Matahari ke pot bunga
+    untuk membantu tanamanmu tumbuh.
+  </p>
+</div>
+
+    <div class="garden-needs">
+  <span id="waterStatus">💧 Water: Needed</span>
+  <span id="sunStatus">☀️ Sunlight: Needed</span>
+</div>
+
+    <div class="garden-navigation">
+      <button class="soft-button"
+              onclick="showPage('universePage')">
+        ← Back
+      </button>
+
+      <button class="soft-button"
+              onclick="showPage('crosswordPage')">
+        Ada game lagi nih →
+      </button>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- POPUP PESAN BUNGA -->
+
+<div id="gardenModal" class="garden-modal hidden">
+
+  <div class="garden-letter">
+
+    <button class="garden-close" onclick="closeGarden()">
+      ×
+    </button>
+
+    <span class="garden-decoration">✿　𓇼　✿</span>
+
+    <p class="eyebrow">A LITTLE FLOWER FOR YOU</p>
+
+    <h2 id="gardenLetterTitle">A Little Wish</h2>
+
+    <div class="garden-divider">♡</div>
+
+    <p id="gardenLetterMessage">
+      Your little message will be written here...
+    </p>
+
+    <span class="garden-footer">with care, always ♡</span>
+
+  </div>
+
+</div>
+
+<!-- POPUP SURAT BOTOL -->
+
+<div id="bottleModal" class="bottle-modal hidden">
+  <div class="bottle-letter">
+
+    <button class="bottle-close" onclick="closeBottle()">
+      ×
+    </button>
+
+    <span class="letter-decoration">𓇼 ✧ 🐚 ✧</span>
+
+    <p class="eyebrow">A MESSAGE FROM THE SEA</p>
+
+    <h2 id="bottleLetterTitle">A Little Message</h2>
+
+    <div class="letter-divider">♡</div>
+
+    <p id="bottleLetterMessage">
+      Your message will be written here...
+    </p>
+
+    <span class="letter-footer">with a little warmth ♡</span>
+
+  </div>
+</div>
+
+<!-- HALAMAN TEKA-TEKI NEGARA -->
+<section id="crosswordPage" class="page hidden">
+  <div class="crossword-container">
+    <p class="eyebrow">A LITTLE WORLD QUIZ 🌍</p>
+    <h2>Keliling Dunia, Yuk!</h2>
+    <p class="crossword-intro">
+      Ada 15 negara yang harus kamu tebak.
+      Tenang, nggak perlu paspor. Cukup modal otak! 😂
+    </p>
+
+    <div class="crossword-orientation">
+      📱 Mainkan dengan HP posisi berdiri (portrait), yaa.
+    </div>
+
+   <div class="crossword-instructions">
+  Cara mainnya gampang, Mbak Lis! 💗
+
+  Tekan nomor yang ada di daftar petunjuk mendatar atau menurun.
+  Nanti Mbak Lis akan langsung diarahkan ke kotak soal yang sesuai.
+
+  Baca petunjuknya, tebak nama negaranya, lalu isi huruf satu per satu.
+  Kalau ada nomor yang berpotongan, jangan lupa hurufnya harus cocok, yaa! 🌍
+</div>
+
+    <div class="crossword-board-scroll">
+      <div id="crosswordBoard" class="crossword-board"></div>
+    </div>
+
+    <div class="crossword-clues">
+      <div class="crossword-clue-column">
+        <h3>↔ Mendatar</h3>
+        <div id="acrossClues"></div>
+      </div>
+
+      <div class="crossword-clue-column">
+        <h3>↕ Menurun</h3>
+        <div id="downClues"></div>
+      </div>
+    </div>
+
+    <p id="crosswordStatus" class="crossword-status">
+      Pilih salah satu petunjuk untuk mulai bermain!
+    </p>
+
+    <button onclick="checkCrossword()" class="soft-button">
+      Periksa Jawaban
+    </button>
+
+    <div id="crosswordSuccess" class="hidden">
+      <h3>Yeay! Keliling dunianya berhasil! 🎉</h3>
+      <p>Paspor boleh kosong, tapi jawabanmu penuh prestasi! 😂</p>
+      <button onclick="showPage('finalPage')" class="soft-button">
+        Lanjut ke halaman terakhir →
+      </button>
+    </div>
+  </div>
+
+  <div class="page-navigation">
+    <button class="soft-button" onclick="showPage('gardenPage')">
+      ← Kembali ke taman
+    </button>
+  </div>
+</section>
+  
+<!-- HALAman TERAKHIR -->
+<section id="finalPage" class="page hidden">
+
+  <div class="last-page-content">
+    <p class="eyebrow">before this scrapbook ends</p>
+
+    <div class="little-flower">✿</div>
+
+    <h2>One Last Little Thing ♡</h2>
+
+    <p class="final-message">
+      Sebelum bukunya ditutup, aku mau tahu sedikit
+      tentang apa yang kamu rasakan.
+
+      Kalau sudah siap, boleh cerita di sini, yaa.
+    </p>
+
+    <!-- FORM WHATSAPP -->
+   <form id="whatsappForm" onsubmit="sendToWhatsApp(event)">
+
+  <!-- 1. PERASAAN -->
+  <div class="wa-question">
+    <label for="feeling">
+      Gimana perasaanmu setelah baca scrapbook ini, Mbak Lis? <span>*</span>
+    </label>
+    <textarea id="feeling" name="feeling"
+      placeholder="Tulis jawaban panjang"
+      required></textarea>
+  </div>
+
+  <!-- 2. KENANGAN PONDOK -->
+  <div class="wa-question">
+    <p class="question-label">
+      Kalau ingat masa-masa kita di pondok, hal apa yang paling kamu kangenin? <span>*</span>
+    </p>
+
+    <label class="choice">
+      <input type="radio" name="memory" value="Curhat ngalor-ngidul sampai lupa kalau besok masih ada kegiatan" required>
+      Curhat ngalor-ngidul sampai lupa kalau besok masih ada kegiatan
+    </label>
+
+    <label class="choice">
+      <input type="radio" name="memory" value="Ngurusin adik-adik sampai berusaha mengurus kewarasan sendiri">
+      Ngurusin adik-adik sampai berusaha mengurus kewarasan sendiri
+    </label>
+
+    <label class="choice">
+      <input type="radio" name="memory" value="Capek bareng, ngeluh bareng, terus besoknya mengulang penderitaan yang sama">
+      Capek bareng, ngeluh bareng, terus besoknya mengulang penderitaan yang sama
+    </label>
+
+    <label class="choice">
+      <input type="radio" name="memory" value="Saling mengandalkan pas keadaan rame, walaupun dalam hati sama-sama pengen rebahan">
+      Saling mengandalkan pas keadaan rame, walaupun dalam hati sama-sama pengen rebahan
+    </label>
+
+    <label class="choice">
+      <input type="radio" name="memory" value="Momen curhat setelah hari panjang, saat akhirnya bisa cerita tanpa harus jadi orang yang kuat terus">
+      Momen curhat setelah hari panjang, saat akhirnya bisa cerita tanpa harus jadi orang yang kuat terus
+    </label>
+
+    <label class="choice">
+      <input type="radio" name="memory" value="Semuanya... dulu pengen cepet selesai, sekarang malah pengen sesekali balik ke masa itu">
+      Semuanya... dulu pengen cepet selesai, sekarang malah pengen sesekali balik ke masa itu
+    </label>
+  </div>
+
+  <!-- 3. WAKTU UNTUK DIRI SENDIRI -->
+  <div class="wa-question">
+    <p class="question-label">
+      Selama kita masih sibuk ngurusin orang lain, menurut kamu kita udah cukup ngasih waktu buat diri sendiri belum? <span>*</span>
+    </p>
+
+    <label class="choice">
+      <input type="checkbox" name="selfCare" value="Udah kok, walaupun kadang cuma istirahat sebentar">
+      Udah kok, walaupun kadang cuma istirahat sebentar
+    </label>
+
+    <label class="choice">
+      <input type="checkbox" name="selfCare" value="Jujur, sering lupa kalau diri sendiri juga butuh istirahat">
+      Jujur, sering lupa kalau diri sendiri juga butuh istirahat
+    </label>
+
+    <label class="choice">
+      <input type="checkbox" name="selfCare" value="Lebih sering mendahulukan tanggung jawab daripada diri sendiri">
+      Lebih sering mendahulukan tanggung jawab daripada diri sendiri
+    </label>
+
+    <label class="choice">
+      <input type="checkbox" name="selfCare" value="Tergantung keadaan, kadang bisa seimbang kadang enggak">
+      Tergantung keadaan, kadang bisa seimbang kadang enggak
+    </label>
+
+    <label class="choice">
+      <input type="checkbox" name="selfCare" value="Capek banget, rasanya belum selesai satu urusan, udah datang urusan lain">
+      Capek banget, rasanya belum selesai satu urusan, udah datang urusan lain
+    </label>
+
+    <label class="choice">
+      <input type="checkbox" name="selfCare" value="Kadang pengen bilang aku capek, tapi ujung-ujungnya dikerjain juga karena kalau bukan kita, siapa lagi">
+      Kadang pengen bilang 'aku capek', tapi ujung-ujungnya dikerjain juga karena kalau bukan kita, siapa lagi
+    </label>
+  </div>
+
+  <!-- 4. PESAN UNTUK DIRI SENDIRI -->
+  <div class="wa-question">
+    <label for="pastSelf">
+      Kalau bisa ngomong sesuatu ke diri kita yang dulu, waktu kita masih sibuk-sibuknya di pondok, kamu pengen bilang apa?
+    </label>
+    <textarea id="pastSelf" name="pastSelf"
+      placeholder="Tulis jawaban panjang"></textarea>
+  </div>
+
+  <!-- 5. DRAMA PONDOK -->
+  <div class="wa-question">
+    <label for="pondokDrama">
+      Dari semua drama kita selama di pondok, kejadian apa yang sampai sekarang masih kamu inget?
+    </label>
+    <textarea id="pondokDrama" name="pondokDrama"
+      placeholder="Tulis jawaban panjang"></textarea>
+  </div>
+
+  <!-- 6. HAL KECIL YANG DIINGAT -->
+  <div class="wa-question">
+    <label for="littleThing">
+      Ada nggak hal kecil yang dulu sering aku lakuin, tapi ternyata masih kamu inget sampai sekarang?
+    </label>
+    <textarea id="littleThing" name="littleThing"
+      placeholder="Tulis jawaban panjang"></textarea>
+  </div>
+
+  <!-- 7. CERITA YANG BELUM TERSAMPAIKAN -->
+  <div class="wa-question">
+    <label for="unsaid">
+      Ada ga hal yang dulu pengen kamu ceritain, tapi belum sempat tersampaikan sampai sekarang?
+    </label>
+    <textarea id="unsaid" name="unsaid"
+      placeholder="Tulis jawaban panjang"></textarea>
+  </div>
+
+  <!-- 8. PESAN TERAKHIR -->
+  <div class="wa-question">
+    <label for="finalMessage">
+      Sebelum selesai, ada pesan yang ingin Mbak Lis sampaikan ke aku atau buat diri sendiri yang udah berjuang sejauh ini?
+    </label>
+    <textarea id="finalMessage" name="finalMessage"
+      placeholder="Tulis jawaban panjang"></textarea>
+  </div>
+
+  <button type="submit" class="last-note-button">
+    send your little message ♡
+  </button>
+
+</form>
+
+    <p class="last-note-footer">
+      made with care, just for you ♡
+    </p>
+  </div>
+
+  <div class="page-navigation">
+    <button class="soft-button"
+            onclick="showPage('crosswordPage')">
+      ← Back
+    </button>
+  </div>
+
+</section>
+
+  <footer>satu scrapbook, banyak cerita. ♡</footer>
+
+  <script src="script.js"></script>
+
+  
+<div id="oceanBookTransition">
+  <svg class="ocean-wave" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <linearGradient id="waveColor" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#c6fff5"/>
+        <stop offset="45%" stop-color="#45d8ca"/>
+        <stop offset="100%" stop-color="#087f91"/>
+      </linearGradient>
+    </defs>
+
+    <path
+      d="M0 420
+         C180 300 280 500 460 390
+         C650 270 760 470 940 360
+         C1120 250 1260 430 1440 330
+         L1440 900 L0 900 Z"
+      fill="url(#waveColor)"
+    />
+  </svg>
+</div>
+
+</body>
+</html>
