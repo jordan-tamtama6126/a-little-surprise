@@ -799,11 +799,12 @@ Yuk, coba dulu! Jangan sampai kalah, yaa. WKWK ♡
 <section id="gardenPage" class="page hidden">
 
   <div class="garden-world">
+
     <div class="garden-rotate-notice">
-  <div class="rotate-icon">📱</div>
-  <p>Mbak Lis, coba putar HP-nya ke samping dulu, yaa.</p>
-  <span>Biar taman kecilnya kelihatan lebih luas 🌷</span>
-  </div>
+      <div class="rotate-icon">📱</div>
+      <p>Mbak Lis, coba putar HP-nya ke samping dulu, yaa.</p>
+      <span>Biar taman kecilnya kelihatan lebih luas 🌷</span>
+    </div>
 
     <div class="garden-heading">
       <p class="eyebrow">A LITTLE GARDEN GAME</p>
@@ -814,112 +815,101 @@ Yuk, coba dulu! Jangan sampai kalah, yaa. WKWK ♡
     <div class="seed-selection">
       <h3>Pilih benih bunga yang mau kamu tanam, terus klik Tanam benih yaa</h3>
 
-<button onclick="selectSeed('daisy')">
-  🌼 Daisy
-</button>
-
-<button onclick="selectSeed('tulip')">
-  🌷 Tulip
-</button>
-
-<button onclick="selectSeed('sunflower')">
-  🌻 Bunga Matahari
-</button>
-
-    <div class="garden-pots">
-    <div class="garden-pot" id="pot0">
-    <div class="plant-display" id="plant0">🪴</div>
-
-    <p>Pot 1</p>
-    <p class="pot-water">💧 Belum disiram</p>
-    <p class="pot-sun">☀️ Belum kena matahari</p>
-
-    <div class="plant-progress">
-    <div class="plant-progress-fill" id="progress0"></div>
-  </div>
-
-  <p class="plant-stage" id="stage0">Belum ada benih nih</p>
-
-  <button onclick="plantSeed(0)">Tanam benih di sini</button>
-  <button onclick="resetPot(0)">Ulangi</button>
-
-</div>
-
-      <div class="garden-pot" id="pot1">
-
-  <div class="plant-display" id="plant1">🪴</div>
-
-  <p>Pot 2</p>
-  <p class="pot-water">💧 Belum disiram</p>
-  <p class="pot-sun">☀️ Belum kena matahari</p>
-
-  <div class="plant-progress">
-    <div class="plant-progress-fill" id="progress1"></div>
-  </div>
-
-  <p class="plant-stage" id="stage1">Belum ada benih nih</p>
-
-  <button onclick="plantSeed(1)">Tanam benih di sini</button>
-  <button onclick="resetPot(1)">Ulangi</button>
-
-</div>
-
-      <div class="garden-pot" id="pot2">
-
-  <div class="plant-display" id="plant2">🪴</div>
-
-  <p>Pot 3</p>
-  <p class="pot-water">💧 Belum disiram</p>
-  <p class="pot-sun">☀️ Belum kena matahari</p>
-
-  <div class="plant-progress">
-    <div class="plant-progress-fill" id="progress2"></div>
-  </div>
-
-  <p class="plant-stage" id="stage2">Belum ada benih nih</p>
-
-  <button onclick="plantSeed(2)">Tanam benih di sini</button>
-  <button onclick="resetPot(2)">Ulangi</button>
-
-</div>
+      <button onclick="selectSeed('daisy')">🌼 Daisy</button>
+      <button onclick="selectSeed('tulip')">🌷 Tulip</button>
+      <button onclick="selectSeed('sunflower')">🌻 Bunga Matahari</button>
     </div>
 
-<div class="garden-tools">
-  <div class="garden-tool" onpointerdown="startGardenDrag(event, 'water')">
-    💧
-    <span>Air</span>
-  </div>
+    <div class="garden-pots">
 
-  <div class="garden-tool" onpointerdown="startGardenDrag(event, 'sun')">
-    ☀️
-    <span>Matahari</span>
-  </div>
+      <!-- POT 1 -->
+      <div class="garden-pot" id="pot0">
+        <div class="plant-display" id="plant0">🪴</div>
+        <p>Pot 1</p>
+        <p class="pot-water">💧 Belum disiram</p>
+        <p class="pot-sun">☀️ Belum kena matahari</p>
 
-</div>
+        <div class="plant-progress">
+          <div class="plant-progress-fill" id="progress0"></div>
+        </div>
 
-</div>
+        <p class="plant-stage" id="stage0">Belum ada benih nih</p>
+        <button onclick="plantSeed(0)">Tanam benih di sini</button>
+        <button onclick="resetPot(0)">Ulangi</button>
+      </div>
+
+      <!-- POT 2 -->
+      <div class="garden-pot" id="pot1">
+        <div class="plant-display" id="plant1">🪴</div>
+        <p>Pot 2</p>
+        <p class="pot-water">💧 Belum disiram</p>
+        <p class="pot-sun">☀️ Belum kena matahari</p>
+
+        <div class="plant-progress">
+          <div class="plant-progress-fill" id="progress1"></div>
+        </div>
+
+        <p class="plant-stage" id="stage1">Belum ada benih nih</p>
+        <button onclick="plantSeed(1)">Tanam benih di sini</button>
+        <button onclick="resetPot(1)">Ulangi</button>
+      </div>
+
+      <!-- POT 3 -->
+      <div class="garden-pot" id="pot2">
+        <div class="plant-display" id="plant2">🪴</div>
+        <p>Pot 3</p>
+        <p class="pot-water">💧 Belum disiram</p>
+        <p class="pot-sun">☀️ Belum kena matahari</p>
+
+        <div class="plant-progress">
+          <div class="plant-progress-fill" id="progress2"></div>
+        </div>
+
+        <p class="plant-stage" id="stage2">Belum ada benih nih</p>
+        <button onclick="plantSeed(2)">Tanam benih di sini</button>
+        <button onclick="resetPot(2)">Ulangi</button>
+      </div>
+
+      <!-- ALAT AIR DAN MATAHARI -->
+      <div class="garden-tools">
+
+        <div class="garden-tool"
+             onpointerdown="startGardenDrag(event, 'water')">
+          💧
+          <span>Air</span>
+        </div>
+
+        <div class="garden-tool"
+             onpointerdown="startGardenDrag(event, 'sun')">
+          ☀️
+          <span>Matahari</span>
+        </div>
+
+      </div>
+
+    </div>
 
     <p id="gardenStatus">
       Choose your seeds and start planting!
     </p>
+
     <div id="flowerQuote" class="flower-quote hidden">
-  <span>✿</span>
-  <p id="flowerQuoteText"></p>
-</div>
+      <span>✿</span>
+      <p id="flowerQuoteText"></p>
+    </div>
 
-<div class="garden-guide">
-  🌱 Yuk, rawat bunga-bunganya!
-
-  <p>
-    Geser ikon 💧 Air atau ☀️ Matahari ke pot bunga
-    untuk membantu tanamanmu tumbuh.
-  </p>
-</div>
+    <div class="garden-guide">
+      🌱 Yuk, rawat bunga-bunganya!
+      <p>
+        Geser ikon 💧 Air atau ☀️ Matahari ke pot bunga
+        untuk membantu tanamanmu tumbuh.
+      </p>
+    </div>
 
     <div class="garden-needs">
-  <span id="waterStatus">💧 Water: Needed</span>
-  <span id="sunStatus">☀️ Sunlight: Needed</span>
-</div>
+      <span id="waterStatus">💧 Water: Needed</span>
+      <span id="sunStatus">☀️ Sunlight: Needed</span>
+    </div>
 
     <div class="garden-navigation">
       <button class="soft-button"
@@ -940,19 +930,13 @@ Yuk, coba dulu! Jangan sampai kalah, yaa. WKWK ♡
 <!-- POPUP PESAN BUNGA -->
 
 <div id="gardenModal" class="garden-modal hidden">
-
   <div class="garden-letter">
 
-    <button class="garden-close" onclick="closeGarden()">
-      ×
-    </button>
+    <button class="garden-close" onclick="closeGarden()">×</button>
 
     <span class="garden-decoration">✿　𓇼　✿</span>
-
     <p class="eyebrow">A LITTLE FLOWER FOR YOU</p>
-
     <h2 id="gardenLetterTitle">A Little Wish</h2>
-
     <div class="garden-divider">♡</div>
 
     <p id="gardenLetterMessage">
@@ -960,9 +944,7 @@ Yuk, coba dulu! Jangan sampai kalah, yaa. WKWK ♡
     </p>
 
     <span class="garden-footer">with care, always ♡</span>
-
   </div>
-
 </div>
 
 <!-- POPUP SURAT BOTOL -->
@@ -970,16 +952,11 @@ Yuk, coba dulu! Jangan sampai kalah, yaa. WKWK ♡
 <div id="bottleModal" class="bottle-modal hidden">
   <div class="bottle-letter">
 
-    <button class="bottle-close" onclick="closeBottle()">
-      ×
-    </button>
+    <button class="bottle-close" onclick="closeBottle()">×</button>
 
     <span class="letter-decoration">𓇼 ✧ 🐚 ✧</span>
-
     <p class="eyebrow">A MESSAGE FROM THE SEA</p>
-
     <h2 id="bottleLetterTitle">A Little Message</h2>
-
     <div class="letter-divider">♡</div>
 
     <p id="bottleLetterMessage">
@@ -987,9 +964,9 @@ Yuk, coba dulu! Jangan sampai kalah, yaa. WKWK ♡
     </p>
 
     <span class="letter-footer">with a little warmth ♡</span>
-
   </div>
 </div>
+
 
 <!-- HALAMAN TEKA-TEKI NEGARA -->
 <section id="crosswordPage" class="page hidden">
