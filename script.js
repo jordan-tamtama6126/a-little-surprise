@@ -793,30 +793,14 @@ function showStarEnding() {
       <h2>Bintang Kecil di Alam Semestamu</h2>
 
       <p>
-        Setiap bintang punya cahayanya masing-masing.
-        Tidak semuanya harus menjadi yang paling terang
-        untuk bisa terlihat indah.
+        Setiap bintang punya cahayanya masing-masing. 
+        Begitu juga kamu, Mbak Lis. Teruslah berjalan dengan caramu sendiri, 
+        tanpa harus menjadi orang lain untuk terlihat istimewa. 
+        Semoga kamu selalu ingat betapa berharganya dirimu, 
+        karena dari sekian banyak bintang di alam semesta kecil ini,
       </p>
 
-      <p>
-        Mbak Lis, begitu juga dengan dirimu.
-        Kamu tidak harus selalu kuat, tidak harus selalu
-        baik-baik saja, dan tidak harus menjadi seperti orang lain.
-      </p>
-
-      <p>
-        Teruslah menjalani perjalananmu sendiri.
-        Kalau suatu hari langit terasa terlalu gelap,
-        semoga kamu tidak lupa bahwa kamu juga punya
-        cahaya yang berharga.
-      </p>
-
-      <p>
-        Dan sekarang, ada satu bintang baru yang akan
-        selalu menjadi bagian dari alam semesta kecil ini.
-      </p>
-
-      <h3>Bintang itu adalah Mbak Lis. ♡</h3>
+      <h3>Bintang itu adalah kamu Mbak Lis. ♡</h3>
     </div>
   `;
 
